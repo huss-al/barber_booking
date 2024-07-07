@@ -1,1 +1,1 @@
-web: gunicorn baerb_shop.wsgi
+web: gunicorn barber_shop.wsgi
