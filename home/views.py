@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Gallery, AboutUsContent, ContactMessage, CutType
-from .forms import ProfileForm, ContactForm, ContactForm
+from .forms import ProfileForm, ContactForm, ContactForm, BookingEditForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login
 from appointments.models import Appointment
+from django.utils import timezone
+
 
 
 
@@ -70,3 +72,57 @@ def contact_us_confirmation(request):
     last_message = ContactMessage.objects.last()  # Get the last submitted message
     return render(request, 'home/contact_us_confirmation.html', {'message': last_message})
 
+
+@login_required
+def user_bookings(request):
+    user = request.user
+    upcoming_appointments = Appointment.objects.filter(client=user.profile, datetime__gte=timezone.now()).order_by('datetime')
+    past_appointments = Appointment.objects.filter(client=user.profile, datetime__lt=timezone.now()).order_by('-datetime')
+    return render(request, 'home/user_bookings.html', {
+        'upcoming_appointments': upcoming_appointments,
+        'past_appointments': past_appointments,
+    })
+
+@login_required
+def edit_booking(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id=appointment_id, client=request.user.profile)
+
+    if request.method == 'POST':
+        form = BookingEditForm(request.POST, instance=appointment)
+        if form.is_valid():
+            form.save()
+            return redirect('booking-detail', appointment_id=appointment.id)
+    else:
+        form = BookingEditForm(instance=appointment)
+
+    return render(request, 'home/edit_booking.html', {'form': form, 'appointment': appointment})
+
+
+
+@login_required
+def cancel_booking(request, appointment_id):
+    appointment = get_object_or_404(Appointment, id=appointment_id, client=request.user.profile)
+
+    if request.method == 'POST':
+        appointment.delete()
+        return redirect('user-bookings')
+
+    return render(request, 'home/cancel_booking.html', {'appointment': appointment})
+
+
+@login_required
+def manage_bookings(request):
+    # Implement logic to manage bookings here
+    # For example, fetching all bookings for display
+    bookings = Appointment.objects.filter(client=request.user.profile).order_by('-datetime')
+
+    context = {
+        'bookings': bookings,
+    }
+    return render(request, 'home/manage_bookings.html', context)
+
+
+def booking_detail(request, appointment_id):
+    appointment = get_object_or_404(Appointment, pk=appointment_id)
+    # Your view logic here
+    return render(request, 'home/booking_detail.html', {'appointment': appointment})

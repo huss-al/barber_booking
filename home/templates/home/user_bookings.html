@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block content %}
+    <h1>My Bookings</h1>
+
+    <h2>Upcoming Appointments</h2>
+    <ul>
+        {% for appointment in upcoming_appointments %}
+            <li>
+                {{ appointment.datetime }} - {{ appointment.barber.name }} - {{ appointment.cut.name }}
+                <a href="{% url 'edit-booking' appointment.id %}">Edit</a> |
+                <a href="{% url 'cancel-booking' appointment.id %}">Cancel</a>
+            </li>
+        {% empty %}
+            <li>No upcoming appointments.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Past Appointments</h2>
+    <ul>
+        {% for appointment in past_appointments %}
+            <li>
+                {{ appointment.datetime }} - {{ appointment.barber.name }} - {{ appointment.cut.name }}
+            </li>
+        {% empty %}
+            <li>No past appointments.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

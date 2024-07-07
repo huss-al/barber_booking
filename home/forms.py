@@ -1,6 +1,7 @@
 from django import forms
 from .models import Profile, ContactMessage
 from django.contrib.auth.models import User
+from appointments.models import Appointment  # Adjust the import path accordingly
 
 
 class ProfileForm(forms.ModelForm):
@@ -17,3 +18,7 @@ class ContactForm(forms.Form):
     message = forms.CharField(label='Message', widget=forms.Textarea)
 
 
+class BookingEditForm(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        fields = ['datetime', 'barber', 'cut']
