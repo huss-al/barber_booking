@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking Page{% endblock %}
+
+{% block content %}
+
+    <h1>Welcome to the Booking Page!</h1>
+    
+    <!-- Booking Form (example) -->
+    <form method="POST" action="{% url 'booking-submit' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Book Appointment</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+<!-- templates/main/gallery.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Gallery
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Gallery</h2>
+    <div class="row">
+        {% for image in images %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if image.image %}
+                <img src="{{ image.image.url }}" class="card-img-top" alt="{{ image.title }}">
+                {% else %}
+                <div class="card-img-top" style="height: 200px; background-color: #eee;"></div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ image.title }}</h5>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-md-12">
+            <p>No images found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

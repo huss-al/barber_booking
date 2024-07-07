@@ -1,0 +1,27 @@
+<!-- templates/main/about_us.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About Us
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>About Us</h2>
+    <div class="row">
+        {% if content %}
+        <div class="col-md-12 mb-4">
+            <img src="{{ content.image.url }}" class="img-fluid" alt="About Us Image">
+        </div>
+        <div class="col-md-12">
+            <p>{{ content.description }}</p>
+        </div>
+        {% else %}
+        <div class="col-md-12">
+            <p>No content available. Please add About Us content in the admin panel.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="flex-grow-1">
+    <div class="container contact-us-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-5">
+                        <label for="id_name" class="form-label">Name</label>
+                        <div>
+                        {{ form.name }}
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Email address</label>
+                        <div>
+                          {{ form.email }}
+                          </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_subject" class="form-label">Subject</label>
+                        <div>
+                          {{ form.subject }}
+                          </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_message" class="form-label">Message</label>
+                        <div>
+                          {{ form.message }}
+                          </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-5">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
