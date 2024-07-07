@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import Profile, Gallery, AboutUsContent, ContactMessage
+from .models import Profile, Gallery, AboutUsContent, ContactMessage, CutType
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -9,6 +9,12 @@ from django_summernote.admin import SummernoteModelAdmin
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'firstname', 'surname')
 
+
+@admin.register(CutType)
+class CutTypeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'duration')
+    search_fields = ('name',)
+    list_filter = ('price', 'duration')
 
 
 @admin.register(Gallery)

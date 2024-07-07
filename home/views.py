@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Profile, Gallery, AboutUsContent, ContactMessage
+from .models import Profile, Gallery, AboutUsContent, ContactMessage, CutType
 from .forms import ProfileForm, ContactForm, ContactForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
@@ -13,6 +13,11 @@ from django.contrib.auth import login as auth_login
 # Create your views here.
 def home(request):
     return render(request, 'home/home.html')
+
+
+def services_page(request):
+    cut_types = CutType.objects.all()
+    return render(request, 'home/services.html', {'cut_types': cut_types})
 
 
 def gallery(request):

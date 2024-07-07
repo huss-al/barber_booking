@@ -11,7 +11,16 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"{self.firstname} {self.surname}"
-    
+
+
+class CutType(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    duration = models.PositiveIntegerField(help_text="Duration in minutes")
+
+    def __str__(self):
+        return self.name
+
 
 
 class Gallery(models.Model):
@@ -21,7 +30,6 @@ class Gallery(models.Model):
         return f"Gallery Image {self.id}"
     
 
-
 class AboutUsContent(models.Model):
     image = CloudinaryField('image')
     description = models.TextField()
@@ -29,7 +37,6 @@ class AboutUsContent(models.Model):
     def __str__(self):
         return "About Us Content"
     
-
 
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100)
