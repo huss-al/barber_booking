@@ -9,8 +9,10 @@ class Appointment(models.Model):
     notes = models.CharField(max_length=255, blank=True, null=True)
     datetime = models.DateTimeField()
     client = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='appointments')
-    barber = models.ForeignKey(Barber, on_delete=models.CASCADE, related_name='appointments')
+    barber = models.ForeignKey('barbers.barber', on_delete=models.CASCADE, related_name='appointments')
     cut = models.ForeignKey('CutType', on_delete=models.CASCADE, related_name='appointments')
+    contact = models.CharField(max_length=20, default='Unknown') 
+
 
     class Meta:
         unique_together = ('datetime', 'barber',)
@@ -24,7 +26,7 @@ class Appointment(models.Model):
             raise ValidationError('An appointment already exists with this barber at the specified time.')
 
     def __str__(self):
-        return f"Appointment {self.id} for {self.client.user.username} with {self.barber.user.username} on {self.datetime}"
+        return f"Appointment {self.id} for {self.client.user.username} with {self.barber.name} on {self.datetime}"
 
 
 class CutType(models.Model):

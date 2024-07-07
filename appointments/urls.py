@@ -12,4 +12,6 @@ urlpatterns = [
     path('admin/delete_cut/<int:cut_id>/', views.admin_delete_cut, name='admin_delete_cut'),
     path('admin/view_all_cuts/', views.admin_view_all_cuts, name='admin_view_all_cuts'),
     path('admin/view_cut/<int:cut_id>/', views.admin_view_cut, name='admin_view_cut'),
+    path('booking/', views.booking_page, name='booking-page'),
+    path('booking-success/<int:appointment_id>/', views.booking_success, name='booking-success'),
 ]

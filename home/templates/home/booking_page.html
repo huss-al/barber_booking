@@ -3,16 +3,14 @@
 {% block title %}Booking Page{% endblock %}
 
 {% block content %}
-
     <h1>Welcome to the Booking Page!</h1>
-    
-    <!-- Booking Form (example) -->
-    <form method="POST" action="{% url 'booking-submit' %}">
+    <form method="POST" action="{% url 'booking-page' %}">
         {% csrf_token %}
-        {{ form.as_p }}
-        </div>
-        
+        {% if form %}
+            {{ form.as_p }}
+        {% else %}
+            <p>No form data available</p>
+        {% endif %}
         <button type="submit" class="btn btn-primary">Book Appointment</button>
     </form>
-
 {% endblock %}

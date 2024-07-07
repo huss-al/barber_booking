@@ -7,6 +7,8 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login
+from appointments.models import Appointment
+
 
 
 
@@ -67,7 +69,4 @@ def contact_us(request):
 def contact_us_confirmation(request):
     last_message = ContactMessage.objects.last()  # Get the last submitted message
     return render(request, 'home/contact_us_confirmation.html', {'message': last_message})
-
-def booking_page(request):
-    return render(request, 'home/booking_page.html')
 

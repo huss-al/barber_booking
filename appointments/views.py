@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import AppointmentForm
+from .forms import AppointmentForm, BookingForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from .models import Appointment, CutType
+from django.contrib import messages
+
 
 
 
@@ -82,3 +84,26 @@ def admin_view_all_cuts(request):
 def admin_view_cut(request, cut_id):
     cut = CutType.objects.get(pk=cut_id)
     return render(request, 'appointments/admin_view_cut.html', {'cut': cut})
+
+
+
+@login_required
+def booking_page(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            appointment.client = request.user.profile
+            appointment.save()
+            messages.success(request, 'Booking successful!')
+            return redirect('booking-success', appointment_id=appointment.id)
+    else:
+        form = BookingForm()
+
+    return render(request, 'home/booking_page.html', {'form': form})
+
+
+@login_required
+def booking_success(request, appointment_id):
+    appointment = Appointment.objects.get(id=appointment_id)
+    return render(request, 'home/booking_success.html', {'appointment': appointment})
