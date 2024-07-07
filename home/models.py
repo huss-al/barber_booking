@@ -3,11 +3,9 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-
-# Create your models here.
 # Create your models here.
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='home_profile')
     firstname = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
 

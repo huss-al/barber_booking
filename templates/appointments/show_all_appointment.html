@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}All Appointments{% endblock %}
+
+{% block content %}
+<h2>All Appointments</h2>
+<ul>
+    {% for appointment in appointments %}
+    <li>
+        <a href="{% url 'appointments:show_appointment' appointment.id %}">{{ appointment.datetime }} - {{ appointment.cut.name }}</a>
+        ({{ appointment.client.user.username }} with {{ appointment.barber.user.username }})
+    </li>
+    {% empty %}
+    <li>No appointments available.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'appointments:create_appointment' %}">Create New Appointment</a>
+{% endblock %}

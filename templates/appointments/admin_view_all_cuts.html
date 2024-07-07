@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Haircuts{% endblock %}
+
+{% block content %}
+<h2>Manage Haircuts</h2>
+<a href="{% url 'appointments:admin_create_cut' %}">Create New Cut Type</a>
+<ul>
+    {% for cut in cuts %}
+    <li>
+        <strong>{{ cut.name }}</strong> - ${{ cut.price }} for {{ cut.duration }} minutes
+        <a href="{% url 'appointments:admin_edit_cut' cut.id %}">Edit</a> | 
+        <a href="{% url 'appointments:admin_delete_cut' cut.id %}">Delete</a>
+    </li>
+    {% empty %}
+    <li>No cut types available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

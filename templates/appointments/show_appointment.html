@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Appointment Details{% endblock %}
+
+{% block content %}
+<h2>Appointment Details</h2>
+<p><strong>Notes:</strong> {{ appointment.notes }}</p>
+<p><strong>Date and Time:</strong> {{ appointment.datetime }}</p>
+<p><strong>Client:</strong> {{ appointment.client.user.username }}</p>
+<p><strong>Barber:</strong> {{ appointment.barber.user.username }}</p>
+<p><strong>Cut Type:</strong> {{ appointment.cut.name }}</p>
+<a href="{% url 'appointments:edit_appointment' appointment.id %}">Edit</a> | 
+<a href="{% url 'appointments:delete_appointment' appointment.id %}">Delete</a>
+<a href="{% url 'appointments:show_all_appointment' %}">Back to Appointments</a>
+{% endblock %}

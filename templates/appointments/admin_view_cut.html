@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Cut Details{% endblock %}
+
+{% block content %}
+<h2>Cut Details</h2>
+<p><strong>Name:</strong> {{ cut.name }}</p>
+<p><strong>Price:</strong> ${{ cut.price }}</p>
+<p><strong>Duration:</strong> {{ cut.duration }} minutes</p>
+<a href="{% url 'appointments:admin_edit_cut' cut.id %}">Edit</a> | 
+<a href="{% url 'appointments:admin_delete_cut' cut.id %}">Delete</a>
+<a href="{% url 'appointments:admin_view_all_cuts' %}">Back to Cuts</a>
+{% endblock %}
