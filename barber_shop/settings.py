@@ -15,6 +15,8 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -53,8 +55,8 @@ INSTALLED_APPS = [
     'cloudinary',
     'home',
     'profiles',
-    'appointments',
     'barbers',
+    'appointments.apps.AppointmentsConfig',
 ]
 
 SITE_ID = 1
@@ -131,8 +133,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+load_dotenv()
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'haldafai1990@gmail.com'
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+DEFAULT_FROM_EMAIL = 'haldafai1990@gmail.com'
+ADMIN_EMAIL = 'h_aldafai@hotmail.com'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
