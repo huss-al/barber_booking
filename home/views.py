@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Gallery, AboutUsContent, ContactMessage, CutType
-from .forms import ProfileForm, ContactForm, ContactForm, BookingEditForm
+from .forms import ProfileForm, ContactForm, ContactForm, BookingEditForm, AppointmentForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views import View
@@ -84,9 +84,22 @@ def user_bookings(request):
     })
 
 @login_required
+def create_booking(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            appointment.client = request.user.profile
+            appointment.save()
+            return redirect('booking-detail', appointment_id=appointment.id)
+    else:
+        form = AppointmentForm()
+    return render(request, 'home/create_booking.html', {'form': form})
+
+
+@login_required
 def edit_booking(request, appointment_id):
     appointment = get_object_or_404(Appointment, id=appointment_id, client=request.user.profile)
-
     if request.method == 'POST':
         form = BookingEditForm(request.POST, instance=appointment)
         if form.is_valid():

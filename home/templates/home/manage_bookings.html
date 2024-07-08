@@ -1,18 +1,14 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h2>Manage Bookings</h2>
-
-<ul>
+  <h2>Manage Bookings</h2>
+  <a href="{% url 'create-booking' %}">Create New Booking</a>
+  <ul>
     {% for booking in bookings %}
-        <li>
-            Date and Time: {{ booking.datetime }}<br>
-            Barber: {{ booking.barber }}<br>
-            Cut: {{ booking.cut }}<br>
-            <!-- Add links for editing and canceling if needed -->
-        </li>
-    {% empty %}
-        <li>No bookings found.</li>
+      <li>
+        <a href="{% url 'booking-detail' booking.id %}">
+          {{ booking.datetime }} - {{ booking.cut }} with {{ booking.barber }}
+        </a>
+      </li>
     {% endfor %}
-</ul>
+  </ul>
 {% endblock %}

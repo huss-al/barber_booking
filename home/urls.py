@@ -12,7 +12,9 @@ urlpatterns = [
     path('contact_us/confirmation/', views.contact_us_confirmation, name='contact_us_confirmation'),
     path('booking-detail/<int:appointment_id>/', views.booking_detail, name='booking-detail'),
     path('cancel-booking/<int:appointment_id>/', views.cancel_booking, name='cancel-booking'),
-    path('manage-bookings/', views.manage_bookings, name='manage-bookings'),  # New URL pattern
+    path('manage-bookings/', views.manage_bookings, name='manage-bookings'),
     path('edit_booking/<int:appointment_id>/', views.edit_booking, name='edit-booking'),
+    path('create-booking/', views.create_booking, name='create-booking'),  
+    path('user-bookings/', views.user_bookings, name='user-bookings'),  # Add this URL pattern
 
 ]

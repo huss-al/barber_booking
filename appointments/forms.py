@@ -18,8 +18,9 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Appointment
-        fields = ['datetime', 'cut', 'barber', 'contact', 'notes']
+        fields = ['cut', 'barber', 'datetime', 'contact', 'notes']
         widgets = {
             'datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
         }
+    
     

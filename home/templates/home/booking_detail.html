@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>Booking Detail</h2>
+  <p>Cut Type: {{ appointment.cut }}</p>
+  <p>Barber: {{ appointment.barber }}</p>
+  <p>Date and Time: {{ appointment.datetime }}</p>
+  <a href="{% url 'edit-booking' appointment.id %}">Edit</a>
+  <a href="{% url 'cancel-booking' appointment.id %}">Cancel</a>
+{% endblock %}

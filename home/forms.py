@@ -22,3 +22,9 @@ class BookingEditForm(forms.ModelForm):
     class Meta:
         model = Appointment
         fields = ['datetime', 'barber', 'cut']
+
+
+class AppointmentForm(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        fields = ['datetime', 'barber', 'cut']
