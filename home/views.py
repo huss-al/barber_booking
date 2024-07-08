@@ -139,3 +139,22 @@ def booking_detail(request, appointment_id):
     appointment = get_object_or_404(Appointment, pk=appointment_id)
     # Your view logic here
     return render(request, 'home/booking_detail.html', {'appointment': appointment})
+
+
+
+from django.core.mail import send_mail
+from django.http import HttpResponse
+
+def send_email_view(request):
+    # Send email using send_mail function
+    try:
+        send_mail(
+            "Subject here",
+            "Here is the message.",
+            "from@example.com",
+            ["to@example.com"],
+            fail_silently=False,
+        )
+        return HttpResponse("Email sent successfully!")
+    except Exception as e:
+        return HttpResponse(f"Error sending email: {str(e)}")
