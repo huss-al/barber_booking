@@ -9,3 +9,34 @@
         max-width: 100%; /* Ensure images fit within carousel container */
         height: auto; /* Maintain aspect ratio */
     }
+
+    .carousel-item img {
+        width: 100%; /* Ensure images take full width of parent */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 300px; /* Set maximum height */
+    }
+
+    /* This is pushing the arrows on the carousel outsdie of the image */
+    .carousel-control-prev, .carousel-control-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: auto;
+        margin-top: 0; /* Adjust top margin as needed */
+    }
+    
+    .carousel-control-prev {
+        left: 0px;
+    }
+    
+    .carousel-control-next {
+        right: 0;
+    }
+    
+    /* Change color of carousel arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #ff0000; /* Set your desired color */
+}
+
