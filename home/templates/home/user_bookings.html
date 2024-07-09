@@ -9,7 +9,7 @@
     <ul>
         {% for appointment in upcoming_appointments %}
             <li>
-                {{ appointment.datetime }} - {{ appointment.barber.name }} - {{ appointment.cut.name }}
+                {{ appointment.date }} - {{ appointment.time }} - {{ appointment.barber.name }} - {{ appointment.cut.name }}
                 <a href="{% url 'edit-booking' appointment.id %}">Edit</a> |
                 <a href="{% url 'cancel-booking' appointment.id %}">Cancel</a>
             </li>

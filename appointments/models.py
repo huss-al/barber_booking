@@ -16,7 +16,6 @@ class Appointment(models.Model):
     cut = models.ForeignKey('CutType', on_delete=models.CASCADE, related_name='appointments')
     contact = models.CharField(max_length=20, default='Unknown') 
 
-
     class Meta:
         unique_together = ('date', 'time', 'barber',)
 

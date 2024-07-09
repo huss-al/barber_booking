@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Gallery, AboutUsContent, ContactMessage, CutType
-from .forms import ProfileForm, ContactForm, ContactForm, BookingEditForm, AppointmentForm
+from .forms import ProfileForm, ContactForm, ContactForm, BookingEditForm, AppointmentForm, BookingEditForm
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.views import View
@@ -9,6 +9,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login
 from appointments.models import Appointment
 from django.utils import timezone
+from django.db import IntegrityError
+
 
 
 
@@ -78,8 +80,8 @@ def user_bookings(request):
     user = request.user
     now = timezone.now()
 
-    upcoming_appointments = Appointment.objects.filter(client=user.profile, date__gte=now.date(), time__gte=now.time()).order_by('date', 'time')
-    past_appointments = Appointment.objects.filter(client=user.profile, date__lt=now.date()).order_by('-date', '-time')
+    upcoming_appointments = Appointment.objects.filter(client=user.profile, date__gte=timezone.now()).order_by('date', 'time')
+    past_appointments = Appointment.objects.filter(client=user.profile, date__lt=timezone.now()).order_by('-date', '-time')
     return render(request, 'home/user_bookings.html', {
         'upcoming_appointments': upcoming_appointments,
         'past_appointments': past_appointments,
@@ -90,12 +92,20 @@ def create_booking(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
-            appointment = form.save(commit=False)
-            appointment.client = request.user.profile
-            appointment.save()
-            return redirect('booking-detail', appointment_id=appointment.id)
+            try:
+                appointment = form.save(commit=False)
+                appointment.client = request.user.profile
+                appointment.save()
+                return redirect('booking-detail', appointment_id=appointment.id)
+            except IntegrityError as e:
+                form.add_error(None, "An appointment with this barber at this date and time already exists.")
+        else:
+            print(form.errors)  # Print form errors to console for debugging
+ 
+        
     else:
         form = AppointmentForm()
+
     return render(request, 'home/create_booking.html', {'form': form})
 
 

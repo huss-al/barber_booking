@@ -14,28 +14,28 @@ from profiles.models import Profile
 @login_required
 def create_appointment(request):
     if request.method == 'POST':
-        form = AppointmentForm(request.POST)
+        form = BookingForm(request.POST)
         if form.is_valid():
             appointment = form.save(commit=False)
             appointment.client = request.user.profile  # Assuming user profile is linked properly
             appointment.save()
             return redirect('show_appointment', appointment_id=appointment.id)
     else:
-        form = AppointmentForm()
+        form = BookingForm()
     return render(request, 'appointments/create_appointment.html', {'form': form})
 
 
 
 @login_required
 def edit_appointment(request, appointment_id):
-    appointment = Appointment.objects.get(pk=appointment_id)
+    appointment = BookingForm.objects.get(pk=appointment_id)
     if request.method == 'POST':
         form = AppointmentForm(request.POST, instance=appointment)
         if form.is_valid():
             form.save()
             return redirect('show_appointment', appointment_id=appointment.id)
     else:
-        form = AppointmentForm(instance=appointment)
+        form = BookingForm(instance=appointment)
     return render(request, 'appointments/edit_appointment.html', {'form': form, 'appointment': appointment})
 
 
