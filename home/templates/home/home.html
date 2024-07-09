@@ -1,11 +1,135 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
-
-
+{% block title %}Home{% endblock %}
 
 {% block content %}
-    <h1>This is the landing page</h1>
-    <!-- Add more content specific to the home page if needed -->
+<!-- 1. Carousel of Images -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <!-- Indicators will be generated dynamically based on the number of images -->
+        {% for image in gallery_images %}
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        <!-- Images will be dynamically loaded here -->
+        {% for image in gallery_images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.title }}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>{{ image.title }}</h5>
+                    <p>{{ image.description }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- 2. Welcome Message and Business Story -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <h2>Welcome to The Barber Shop</h2>
+            <p class="lead">At [Salon Name], we pride ourselves on providing exceptional hair care services that bring out the best in you. With a team of skilled barbers and stylists, we are dedicated to delivering personalized experiences tailored to your unique preferences. Whether you're looking for a stylish haircut, a rejuvenating hair treatment, or expert grooming advice, our salon is your go-to destination for all your hair care needs. Step into our welcoming space and discover why [Salon Name] is the choice of discerning clients who value quality and style.
+
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- 3. Buttons: GALLERY and PRICE LIST -->
+<div class="container mt-4">
+    <div class="row text-center">
+        <div class="col-md-6">
+            <a href="{% url 'gallery-page' %}" class="btn btn-primary btn-lg">GALLERY</a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'services-page' %}" class="btn btn-primary btn-lg">PRICE LIST</a>
+        </div>
+    </div>
+</div>
+
+    <div class="row mt-4">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <!-- Add a heading for the description -->
+            <h3 class="text-center">Meet Our Barbers</h3>
+        </div>
+    </div>
+    <div class="row mt-2">
+        {% for barber in barbers %}
+        <div class="col-lg-4 mb-4">
+            <div class="text-center">
+                <img src="{{ barber.image.url }}" class="img-fluid rounded-circle" alt="{{ barber.name }}" style="max-width: 200px;">
+                <h5>{{ barber.name }}</h5>
+                <p>{{ barber.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+<!-- 5. Button: CONTACT US -->
+<div class="container mt-4">
+    <div class="row text-center">
+        <div class="col">
+            <a href="{% url 'contact_us-page' %}" class="btn btn-primary btn-lg">CONTACT US</a>
+        </div>
+    </div>
+</div>
+
+<!-- 6. Google Reviews: Carousel of Reviews -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+            <h2>Google Reviews</h2>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <div id="carouselReviews" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Reviews will be dynamically loaded here -->
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text">"Great service and atmosphere! Highly recommended."</p>
+                                <a href="" class="btn btn-link">Read more reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more carousel items dynamically -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselReviews" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselReviews" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 7. Button: BOOK NOW -->
+<div class="container mt-4">
+    <div class="row text-center">
+        <div class="col">
+            <a href="{% url 'booking-page' %}" class="btn btn-primary btn-lg">BOOK NOW</a>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

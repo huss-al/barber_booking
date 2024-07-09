@@ -1,0 +1,11 @@
+    /* Adjust width of the carousel container */
+    #carouselExampleIndicators {
+        max-width: 800px; /* Adjust width as needed */
+        margin: auto; /* Center align the carousel */
+    }
+
+    /* Adjust width and height of carousel images */
+    #carouselExampleIndicators .carousel-item img {
+        max-width: 100%; /* Ensure images fit within carousel container */
+        height: auto; /* Maintain aspect ratio */
+    }

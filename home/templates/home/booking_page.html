@@ -1,5 +1,3 @@
-<!-- booking_page.html -->
-
 {% extends 'base.html' %}
 
 {% block title %}Booking Page{% endblock %}
@@ -13,25 +11,29 @@
                     <h1 class="card-title">Welcome to the Booking Page!</h1>
                 </div>
                 <div class="card-body">
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>
-                        {% endfor %}
+                    {% if booking_not_available %}
+                        <div class="alert alert-danger" role="alert">
+                            This booking is not available at this day and time. Please select another time.
+                        </div>
                     {% endif %}
                     <form method="POST" action="{% url 'booking-page' %}">
                         {% csrf_token %}
-                        {% for field in form %}
-                            <div class="form-group m-2">
-                                {{ field.label_tag }}
-                                {{ field }}
-                                {% if field.help_text %}
-                                    <small class="form-text text-muted">{{ field.help_text }}</small>
-                                {% endif %}
-                            </div>
+                        {% if form %}
+                            {% for field in form %}
+                                <div class="form-group m-2">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    {% if field.help_text %}
+                                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                                    {% endif %}
+                                    {% for error in field.errors %}
+                                        <div class="invalid-feedback d-block">{{ error }}</div>
+                                    {% endfor %}
+                                </div>
                             {% endfor %}
+                        {% else %}
+                            <p>No form data available</p>
+                        {% endif %}
                         <button type="submit" class="btn btn-primary">Book Appointment</button>
                     </form>
                 </div>

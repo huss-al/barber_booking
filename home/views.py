@@ -10,6 +10,9 @@ from django.contrib.auth import login as auth_login
 from appointments.models import Appointment
 from django.utils import timezone
 from django.db import IntegrityError
+from .models import Gallery
+from barbers.models import Barber  # Import your Barber model from the barbers app
+
 
 
 
@@ -18,7 +21,9 @@ from django.db import IntegrityError
 
 # Create your views here.
 def home(request):
-    return render(request, 'home/home.html')
+    gallery_images = Gallery.objects.all()  # Query all gallery images
+    barbers = Barber.objects.all()  # Fetch all barbers from the database
+    return render(request, 'home/home.html', {'gallery_images': gallery_images, 'barbers': barbers})
 
 
 def services_page(request):

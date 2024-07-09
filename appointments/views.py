@@ -91,14 +91,18 @@ def admin_view_cut(request, cut_id):
 
 @login_required
 def booking_page(request):
+    booking_not_available = False
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
+            appointment_date = form.cleaned_data['date']
             appointment_time = form.cleaned_data['time']
             barber = form.cleaned_data['barber']
 
-            if not is_booking_available(appointment_time, barber):
-                messages.error(request, 'This booking is not available at this day and time. Please select another time.')
+            if not is_booking_available(appointment_date, appointment_time, barber):
+                booking_not_available = True
+
             else:
                 # Check if the current user has a profile
                 try:
@@ -114,12 +118,10 @@ def booking_page(request):
     else:
         form = BookingForm()
     
-    return render(request, 'home/booking_page.html', {'form': form})
+    return render(request, 'home/booking_page.html', {'form': form, 'booking_not_available': booking_not_available})
 
-def is_booking_available(appointment_time, barber):
-    # Implement your logic here to check if the booking time is available
-    # For example, check if there are any existing appointments at the same time for the same barber
-    existing_appointments = Appointment.objects.filter(time=appointment_time, barber=barber)
+def is_booking_available(appointment_date, appointment_time, barber):
+    existing_appointments = Appointment.objects.filter(date=appointment_date,time=appointment_time, barber=barber)
     return not existing_appointments.exists()
 
 
