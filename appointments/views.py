@@ -94,21 +94,33 @@ def booking_page(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            # Check if the current user has a profile
-            try:
-                profile = request.user.profile  # Assuming user has a one-to-one relationship with Profile
-            except Profile.DoesNotExist:
-                # Create a new profile if it doesn't exist
-                profile = Profile.objects.create(user=request.user)
+            appointment_time = form.cleaned_data['time']
+            barber = form.cleaned_data['barber']
 
-            appointment = form.save(commit=False)
-            appointment.client = profile  # Assign the profile as the client
-            appointment.save()
-            return redirect('booking-success', appointment_id=appointment.pk)  
+            if not is_booking_available(appointment_time, barber):
+                messages.error(request, 'This booking is not available at this day and time. Please select another time.')
+            else:
+                # Check if the current user has a profile
+                try:
+                    profile = request.user.profile 
+                except Profile.DoesNotExist:
+                    # Create a new profile if it doesn't exist
+                    profile = Profile.objects.create(user=request.user)
+
+                appointment = form.save(commit=False)
+                appointment.client = profile  # Assign the profile as the client
+                appointment.save()
+                return redirect('booking-success', appointment_id=appointment.pk)
     else:
         form = BookingForm()
     
     return render(request, 'home/booking_page.html', {'form': form})
+
+def is_booking_available(appointment_time, barber):
+    # Implement your logic here to check if the booking time is available
+    # For example, check if there are any existing appointments at the same time for the same barber
+    existing_appointments = Appointment.objects.filter(time=appointment_time, barber=barber)
+    return not existing_appointments.exists()
 
 
 @login_required

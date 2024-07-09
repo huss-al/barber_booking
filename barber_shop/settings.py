@@ -15,6 +15,9 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
+from django.contrib.messages import constants as messages
+
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -73,8 +76,16 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-
 ]
+
+# Define message tags if you want to customize their appearance
+MESSAGE_TAGS = {
+    messages.DEBUG: 'debug',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',  # For Bootstrap compatibility
+}
 
 ROOT_URLCONF = 'barber_shop.urls'
 
@@ -133,19 +144,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'haldafai1990@gmail.com'
-# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-
-# DEFAULT_FROM_EMAIL = 'haldafai1990@gmail.com'
-# ADMIN_EMAIL = 'h_aldafai@hotmail.com'
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -173,3 +171,6 @@ CLOUDINARY = {
     'api_key': '261755314361552',
     'api_secret': 'vuXGhyRQyQ085ovzNFXFQqxepzQ',
 }
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'

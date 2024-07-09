@@ -6,3 +6,7 @@ class AppointmentsConfig(AppConfig):
 
     def ready(self):
         import appointments.signals
+
+class UserMessagesConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'user_messages'
