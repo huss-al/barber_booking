@@ -1,15 +1,28 @@
+<!-- In your booking_success.html template -->
+
 {% extends 'base.html' %}
 
 {% block title %}Booking Successful{% endblock %}
 
 {% block content %}
-    <h2>Booking Successful!</h2>
-    <p>Your appointment details:</p>
-    <div class="container mb-5">
-        <p><strong>Date and Time:</strong> {{ appointment.datetime }}</p>
-        <p><strong>Service:</strong> {{ appointment.cut }}</p>
-        <p><strong>Barber:</strong> {{ appointment.barber }}</p>
-        <p><strong>Client:</strong> {{ appointment.client.user.username }}</p>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Booking Successful!</h1>
+                </div>
+                <div class="card-body">
+                    <p>Your appointment details:</p>
+                    <ul>
+                        <li><strong>Date:</strong> {{ appointment.date }}</li>
+                        <li><strong>Time:</strong> {{ appointment.time }}</li>
+                        <li><strong>Barber:</strong> {{ appointment.barber }}</li>
+                        <li><strong>Service:</strong>{{ appointment.cut }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <p>Thank you for choosing our services.</p>
+</div>
 {% endblock %}

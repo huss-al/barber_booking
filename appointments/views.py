@@ -4,6 +4,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required
 from .models import Appointment, CutType
 from django.contrib import messages
+from profiles.models import Profile 
+
 
 
 
@@ -92,18 +94,24 @@ def booking_page(request):
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
+            # Check if the current user has a profile
+            try:
+                profile = request.user.profile  # Assuming user has a one-to-one relationship with Profile
+            except Profile.DoesNotExist:
+                # Create a new profile if it doesn't exist
+                profile = Profile.objects.create(user=request.user)
+
             appointment = form.save(commit=False)
-            appointment.client = request.user.profile
+            appointment.client = profile  # Assign the profile as the client
             appointment.save()
-            messages.success(request, 'Booking successful!')
-            return redirect('booking-success', appointment_id=appointment.id)
+            return redirect('booking-success', appointment_id=appointment.pk)  
     else:
         form = BookingForm()
-
+    
     return render(request, 'home/booking_page.html', {'form': form})
 
 
 @login_required
 def booking_success(request, appointment_id):
-    appointment = Appointment.objects.get(id=appointment_id)
+    appointment = get_object_or_404(Appointment, pk=appointment_id)
     return render(request, 'home/booking_success.html', {'appointment': appointment})

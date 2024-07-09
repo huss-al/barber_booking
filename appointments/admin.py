@@ -7,7 +7,7 @@ from .models import Appointment, CutType
 
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
-    list_display = ('id', 'datetime', 'client', 'barber', 'cut')
+    list_display = ('id', 'date', 'time', 'client', 'barber', 'cut')
 
 @admin.register(CutType)
 class CutTypeAdmin(admin.ModelAdmin):

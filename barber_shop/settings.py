@@ -15,7 +15,6 @@ import os
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
-from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -29,7 +28,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-rt-8&cq%g$%m#^(6fy$8#1g=3$4t+hidq(x2g7l_gwk+^kq@g7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False    
+DEBUG = True    
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -133,17 +132,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-load_dotenv()
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'haldafai1990@gmail.com'
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'haldafai1990@gmail.com'
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-DEFAULT_FROM_EMAIL = 'haldafai1990@gmail.com'
-ADMIN_EMAIL = 'h_aldafai@hotmail.com'
+# DEFAULT_FROM_EMAIL = 'haldafai1990@gmail.com'
+# ADMIN_EMAIL = 'h_aldafai@hotmail.com'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

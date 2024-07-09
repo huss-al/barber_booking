@@ -1,26 +1,68 @@
 from django import forms
 from .models import Appointment, CutType
 from barbers.models import Barber
+from datetime import datetime, time, timedelta
 
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['notes', 'datetime', 'client', 'barber', 'cut']
+        fields = ['notes', 'date', 'time', 'client', 'barber', 'cut']
         widgets = {
-            'datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'date': forms.DateInput(attrs={'type': 'date'}),
+            'time': forms.TimeInput(attrs={'type': 'time'}),
         }
 
 
+OPENING_HOURS_START = 9  # 9am
+OPENING_HOURS_END = 18   # 6pm
+
 class BookingForm(forms.ModelForm):
-    cut = forms.ModelChoiceField(queryset=CutType.objects.all())
-    barber = forms.ModelChoiceField(queryset=Barber.objects.all())
+    cut = forms.ModelChoiceField(queryset=CutType.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
+    barber = forms.ModelChoiceField(queryset=Barber.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
+    date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control', 'placeholder': 'YYYY-MM-DD'}))
+    time = forms.TimeField(widget=forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Generate time choices in 1-hour intervals
+        appointment_time_choices = []
+        start_time = datetime.combine(self.initial.get('date', datetime.today().date()), time(OPENING_HOURS_START, 0))
+        end_time = datetime.combine(self.initial.get('date', datetime.today().date()), time(OPENING_HOURS_END, 0))
+
+        current_time = start_time
+        while current_time <= end_time:
+            appointment_time_choices.append(
+                (current_time.strftime('%H:%M'), current_time.strftime('%I:%M %p'))  # Format for display
+            )
+            current_time += timedelta(hours=1)
+
+        self.fields['time'].choices = appointment_time_choices
+        # Optionally set initial value for time field
+        if appointment_time_choices:
+            self.fields['time'].initial = appointment_time_choices[0][0]  # Set initial value to the first choice
+
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get('date')
+        time = cleaned_data.get('time')
+
+        if date and time:
+            try:
+                datetime_str = f"{date} {time}"
+                cleaned_data['date'] = date
+                cleaned_data['time'] = time
+            except ValueError:
+                raise forms.ValidationError("Invalid date/time format.")
+
+        return cleaned_data
 
     class Meta:
         model = Appointment
-        fields = ['cut', 'barber', 'datetime', 'contact', 'notes']
-        widgets = {
-            'datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-        }
-    
-    
+        fields = ['cut', 'barber', 'date', 'time', 'contact', 'notes']
+
+    class Meta:
+        model = Appointment
+        fields = ['cut', 'barber', 'date', 'time', 'contact', 'notes']
+        

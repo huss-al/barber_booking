@@ -21,10 +21,10 @@ class ContactForm(forms.Form):
 class BookingEditForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['datetime', 'barber', 'cut']
+        fields = ['date', 'time', 'barber', 'cut']
 
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
         model = Appointment
-        fields = ['datetime', 'barber', 'cut']
+        fields = ['date', 'time', 'barber', 'cut']

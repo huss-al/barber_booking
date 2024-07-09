@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h2>Booking Detail</h2>
-  <p>Cut Type: {{ appointment.cut }}</p>
-  <p>Barber: {{ appointment.barber }}</p>
-  <p>Date and Time: {{ appointment.datetime }}</p>
+<ul>
+  <li><strong>Date:</strong> {{ appointment.date }}</li>
+  <li><strong>Time:</strong> {{ appointment.time }}</li>
+  <li><strong>Barber:</strong> {{ appointment.barber }}</li>
+  <li><strong>Service:</strong>{{ appointment.cut }}</li>
+</ul>
   <a href="{% url 'edit-booking' appointment.id %}">Edit</a>
   <a href="{% url 'cancel-booking' appointment.id %}">Cancel</a>
 {% endblock %}

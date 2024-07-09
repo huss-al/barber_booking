@@ -76,8 +76,10 @@ def contact_us_confirmation(request):
 @login_required
 def user_bookings(request):
     user = request.user
-    upcoming_appointments = Appointment.objects.filter(client=user.profile, datetime__gte=timezone.now()).order_by('datetime')
-    past_appointments = Appointment.objects.filter(client=user.profile, datetime__lt=timezone.now()).order_by('-datetime')
+    now = timezone.now()
+
+    upcoming_appointments = Appointment.objects.filter(client=user.profile, date__gte=now.date(), time__gte=now.time()).order_by('date', 'time')
+    past_appointments = Appointment.objects.filter(client=user.profile, date__lt=now.date()).order_by('-date', '-time')
     return render(request, 'home/user_bookings.html', {
         'upcoming_appointments': upcoming_appointments,
         'past_appointments': past_appointments,
@@ -123,38 +125,7 @@ def cancel_booking(request, appointment_id):
     return render(request, 'home/cancel_booking.html', {'appointment': appointment})
 
 
-@login_required
-def manage_bookings(request):
-    # Implement logic to manage bookings here
-    # For example, fetching all bookings for display
-    bookings = Appointment.objects.filter(client=request.user.profile).order_by('-datetime')
-
-    context = {
-        'bookings': bookings,
-    }
-    return render(request, 'home/manage_bookings.html', context)
-
 
 def booking_detail(request, appointment_id):
-    appointment = get_object_or_404(Appointment, pk=appointment_id)
-    # Your view logic here
+    appointment = get_object_or_404(Appointment, id=appointment_id, client=request.user.profile)
     return render(request, 'home/booking_detail.html', {'appointment': appointment})
-
-
-
-from django.core.mail import send_mail
-from django.http import HttpResponse
-
-def send_email_view(request):
-    # Send email using send_mail function
-    try:
-        send_mail(
-            "Subject here",
-            "Here is the message.",
-            "from@example.com",
-            ["to@example.com"],
-            fail_silently=False,
-        )
-        return HttpResponse("Email sent successfully!")
-    except Exception as e:
-        return HttpResponse(f"Error sending email: {str(e)}")
