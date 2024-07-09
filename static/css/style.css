@@ -1,3 +1,8 @@
+body {
+    background-color: black;
+    color: aliceblue;
+}
+    
     /* Adjust width of the carousel container */
     #carouselExampleIndicators {
         max-width: 800px; /* Adjust width as needed */
