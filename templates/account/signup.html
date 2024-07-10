@@ -132,5 +132,53 @@
         color: rgb(114, 115, 115);
         font-weight: 600;
     }
+
+     /* Media queries for responsiveness */
+     @media (max-width: 992px) {
+        .register-box {
+            width: 80%; /* Adjust width as needed */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .register-box {
+            padding: 20px;
+        }
+
+        .input-box input[type="text"],
+        .input-box input[type="email"],
+        .input-box textarea {
+            height: 50px;
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        .submit-btn {
+            height: 50px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .register-box {
+            padding: 15px;
+        }
+
+        .input-box input[type="text"],
+        .input-box input[type="email"],
+        .input-box textarea {
+            height: 45px;
+            font-size: 15px;
+            padding: 0 15px;
+        }
+
+        .submit-btn {
+            height: 45px;
+            font-size: 14px;
+        }
+    }
+</style>
+
+
 </style>
 {% endblock %}
