@@ -1,6 +1,6 @@
 body {
     background-color: black;
-    color: white; /* Optional: Set text color to white for readability */
+    color: aliceblue;
 }
     
     /* Adjust width of the carousel container */
@@ -45,3 +45,6 @@ body {
     background-color: #ff0000; /* Set your desired color */
 }
 
+td {
+    color: aliceblue;
+}
