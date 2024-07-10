@@ -7,7 +7,6 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<main>
     <div class="login-box">
         <div class="login-header">
             <header>{% trans "Login" %}</header>
@@ -34,7 +33,7 @@
             <p>{% trans "Don't have an account?" %} <a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></p>
         </div>
     </div>
-</main>
+
 
 
 
@@ -206,6 +205,7 @@ section a {
     @media (max-width: 576px) {
         .login-box {
             padding: 15px;
+
         }
 
         .input-box input[type="text"],
