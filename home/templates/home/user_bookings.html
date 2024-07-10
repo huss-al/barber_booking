@@ -3,29 +3,142 @@
 {% block title %}My Bookings{% endblock %}
 
 {% block content %}
-    <h1>My Bookings</h1>
+    <div class="container my-5">
+        <div class="manage-bookings-box">
+            <div class="manage-bookings-header">
+                <h1 class="text-center">My Bookings</h1>
+            </div>
+            
+            <div class="booking-section">
+                <div class="upcoming-appointments">
+                    <h2 class="mb-3">Upcoming Appointments</h2>
+                    <ul class="list-group">
+                        {% for appointment in upcoming_appointments %}
+                            <li class="list-group-item">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span>{{ appointment.date }}</span> - <span>{{ appointment.time }}</span><br>
+                                        <span>Barber: {{ appointment.barber.name }}</span><br>
+                                        <span>Cut: {{ appointment.cut.name }}</span>
+                                    </div>
+                                    <div>
+                                        <a href="{% url 'edit-booking' appointment.id %}" class="btn btn-primary me-2">Edit</a>
+                                        <a href="{% url 'cancel-booking' appointment.id %}" class="btn btn-danger">Cancel</a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item">No upcoming appointments.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
 
-    <h2>Upcoming Appointments</h2>
-    <ul>
-        {% for appointment in upcoming_appointments %}
-            <li>
-                {{ appointment.date }} - {{ appointment.time }} - {{ appointment.barber.name }} - {{ appointment.cut.name }}
-                <a href="{% url 'edit-booking' appointment.id %}">Edit</a> |
-                <a href="{% url 'cancel-booking' appointment.id %}">Cancel</a>
-            </li>
-        {% empty %}
-            <li>No upcoming appointments.</li>
-        {% endfor %}
-    </ul>
 
-    <h2>Past Appointments</h2>
-    <ul>
-        {% for appointment in past_appointments %}
-            <li>
-                {{ appointment.datetime }} - {{ appointment.barber.name }} - {{ appointment.cut.name }}
-            </li>
-        {% empty %}
-            <li>No past appointments.</li>
-        {% endfor %}
-    </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .manage-bookings-box {
+            width: 600px;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .manage-bookings-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .manage-bookings-header h1 {
+            color: #333;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #333;
+
+        }
+
+
+        .booking-section {
+            margin-top: 20px;
+        }
+
+        .list-group {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list-group-item {
+            margin-bottom: 10px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+
+        .btn {
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.5;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .manage-bookings-box {
+                width: 80%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .manage-bookings-box {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
 {% endblock %}
