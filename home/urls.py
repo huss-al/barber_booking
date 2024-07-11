@@ -17,3 +17,5 @@ urlpatterns = [
     path('user-bookings/', views.user_bookings, name='user-bookings'),  # Add this URL pattern
 
 ]
+
+
