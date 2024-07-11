@@ -3,6 +3,23 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import ProfileForm
 from .models import Profile
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login as auth_login
+
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)  # Log in the user after registration
+            messages.success(request, 'Registration successful! You can now book appointments.')
+            return redirect('booking-page')  # Redirect to 'user-bookings' after registration
+    else:
+        form = UserCreationForm()
+    
+    return render(request, 'account/signup.html', {'form': form})
 
 
 @login_required

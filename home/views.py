@@ -11,11 +11,8 @@ from appointments.models import Appointment
 from django.utils import timezone
 from django.db import IntegrityError
 from .models import Gallery
-from barbers.models import Barber  # Import your Barber model from the barbers app
-
-
-
-
+from barbers.models import Barber 
+from django.contrib import messages
 
 
 
@@ -58,7 +55,8 @@ def contact_us(request):
             email = form.cleaned_data['email']
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
-            
+            messages.success(request, 'Your message was sent successfully.')
+
             # Save to database
             ContactMessage.objects.create(
                 name=name,
@@ -101,11 +99,12 @@ def create_booking(request):
                 appointment = form.save(commit=False)
                 appointment.client = request.user.profile
                 appointment.save()
+                messages.success(request, 'Your booking was successfully.')
                 return redirect('booking-detail', appointment_id=appointment.id)
             except IntegrityError as e:
                 form.add_error(None, "An appointment with this barber at this date and time already exists.")
         else:
-            print(form.errors)  # Print form errors to console for debugging
+            messages.error(request, 'Sorrry, the barber is not available at this time.')
  
         
     else:
@@ -121,6 +120,7 @@ def edit_booking(request, appointment_id):
         form = BookingEditForm(request.POST, instance=appointment)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your new booking was successful.')
             return redirect('user-bookings')
     else:
         form = BookingEditForm(instance=appointment)
@@ -135,6 +135,8 @@ def cancel_booking(request, appointment_id):
 
     if request.method == 'POST':
         appointment.delete()
+        messages.success(request, 'Your booking was cancelled successfully.')
+
         return redirect('user-bookings')
 
     return render(request, 'home/cancel_booking.html', {'appointment': appointment})

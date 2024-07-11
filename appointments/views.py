@@ -18,6 +18,8 @@ def create_appointment(request):
         if form.is_valid():
             appointment = form.save(commit=False)
             appointment.client = request.user.profile  # Assuming user profile is linked properly
+            messages.success(request, 'Your booking was successfully.')
+
             appointment.save()
             return redirect('show_appointment', appointment_id=appointment.id)
     else:
@@ -33,6 +35,8 @@ def edit_appointment(request, appointment_id):
         form = AppointmentForm(request.POST, instance=appointment)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Your new booking was successful.')
+
             return redirect('show_appointment', appointment_id=appointment.id)
     else:
         form = BookingForm(instance=appointment)
@@ -45,6 +49,7 @@ def delete_appointment(request, appointment_id):
     appointment = Appointment.objects.get(pk=appointment_id)
     if request.method == 'POST':
         appointment.delete()
+        messages.success(request, 'Your booking was cancelled successfully.')
         return redirect('show_all_appointment')
     return render(request, 'appointments/delete_appointment.html', {'appointment': appointment})
 
@@ -102,6 +107,8 @@ def booking_page(request):
 
             if not is_booking_available(appointment_date, appointment_time, barber):
                 booking_not_available = True
+                messages.error(request, 'The barber is not available at this time.')
+
 
             else:
                 # Check if the current user has a profile
@@ -114,6 +121,8 @@ def booking_page(request):
                 appointment = form.save(commit=False)
                 appointment.client = profile  # Assign the profile as the client
                 appointment.save()
+                messages.error(request, 'Your booking was successful.')
+
                 return redirect('booking-success', appointment_id=appointment.pk)
     else:
         form = BookingForm()

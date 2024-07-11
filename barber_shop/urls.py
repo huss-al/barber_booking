@@ -27,6 +27,5 @@ urlpatterns = [
     path('profiles/', include('profiles.urls')),
     path('appointments/', include('appointments.urls')),
     path('barbers/', include('barbers.urls')),
-
     path("", include("home.urls"), name="home-urls"),
 ] 
