@@ -2,21 +2,21 @@ body {
     background-color: black;
     color: aliceblue;
 }
-
-.booknow-btn {
-    width: 100%;
-    height: 40px;
-    background: #1d01ef;
-    border: none;
-    border-radius: 30px;
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .3s;
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s;
 }
 
-.booknow-btn:hover {
-    background: #82b6f0;
-    transform: scale(1.05, 1);
+.social-icons a:hover {
+    color: #74C0FC;
+}
+
+footer .list-unstyled {
+    list-style: none;
+    padding: 0;
+}
+
+footer .list-unstyled li {
+    margin-bottom: 10px;
 }
