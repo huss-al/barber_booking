@@ -121,7 +121,7 @@ def edit_booking(request, appointment_id):
         form = BookingEditForm(request.POST, instance=appointment)
         if form.is_valid():
             form.save()
-            return redirect('booking-detail', appointment_id=appointment.id)
+            return redirect('user-bookings')
     else:
         form = BookingEditForm(instance=appointment)
 

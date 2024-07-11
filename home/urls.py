@@ -14,7 +14,8 @@ urlpatterns = [
     path('cancel-booking/<int:appointment_id>/', views.cancel_booking, name='cancel-booking'),
     path('edit_booking/<int:appointment_id>/', views.edit_booking, name='edit-booking'),
     path('create-booking/', views.create_booking, name='create-booking'),  
-    path('user-bookings/', views.user_bookings, name='user-bookings'),  # Add this URL pattern
+    path('user-bookings/', views.user_bookings, name='user-bookings'),
+
 
 ]
 

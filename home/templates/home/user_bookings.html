@@ -11,6 +11,7 @@
             
             <div class="booking-section">
                 <div class="upcoming-appointments">
+                    {% if upcoming_appointments %}
                     <h2 class="mb-3 text-center">Upcoming Appointments</h2>
                     <ul class="list-group">
                         {% for appointment in upcoming_appointments %}
@@ -27,14 +28,12 @@
                                     </div>
                                 </div>
                             </li>
-                        {% empty %}
-                            <li class="list-group-item">No upcoming appointments.</li>
                         {% endfor %}
                     </ul>
+                    {% else %}
+                    <p class="text-center">No upcoming appointments.</p>
+                {% endif %}
                 </div>
-
-
-                    </ul>
                 </div>
             </div>
         </div>
