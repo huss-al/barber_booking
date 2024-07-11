@@ -6,35 +6,32 @@ Services and Prices
 {% endblock %}
 
 {% block content %}
+<div class="custom-container mb-5 mt-5">
+    <h2 class="text-center">Price List</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered">
 
-    <div class="container mb-5 mt-5">
-        <h2 class="text-center">Price List</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <tbody class="service-table">
-                    {% for cut_type in cut_types %}
-                    <tr>
-                        <td class="service-col">{{ cut_type.name }}</td>
-                        <td>£{{ cut_type.price }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div class="d-flex justify-content-center mt-4">
-            <button type="button" class="btn btn-primary me-2">
-                <a class="text-white" href="{% url 'booking-page' %}">BOOK NOW</a>
-            </button>
-            <button type="button" class="btn btn-secondary">
-                <a class="text-white" href="{% url 'contact_us-page' %}">CONTACT US</a>
-            </button>
-        </div>
+            <tbody class="service-table">
+                {% for cut_type in cut_types %}
+                <tr>
+                    <td class="service-col">{{ cut_type.name }}</td>
+                    <td>£{{ cut_type.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{% url 'booking-page' %}" class="btn btn-primary me-2">BOOK NOW</a>
+        <a href="{% url 'contact_us-page' %}" class="btn btn-secondary">CONTACT US</a>
+    </div>
+</div>
 
 
 <style>
+    /* Global styles */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-
+    
     * {
         margin: 0;
         padding: 0;
@@ -42,24 +39,11 @@ Services and Prices
         font-family: 'Poppins', sans-serif;
     }
 
-    body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    thead {
-    background-color: #4891db; /* Change to your desired background color */
-    color: white; /* Change to your desired text color */
-}
-
-    .service-col {
-        width: 100%; /* Adjust this value as needed */
+    /* Container and text styles */
+    .custom-container {
+        width: 50%;
+        max-width: 960px;
+        margin: 0 auto;
     }
 
     h2 {
@@ -74,42 +58,43 @@ Services and Prices
         border-collapse: collapse;
     }
 
+    .service-col {
+        width: 500px;
+    }
+
     th, td {
         padding: 15px;
         text-align: left;
         border: none;
-    }
-
-    td {
-        font-size: 14px;
-        font-weight: 400;
         color: #edeaea;
     }
 
+    /* Button styles */
     .btn-primary, .btn-secondary {
         border-radius: 10px;
         padding: 10px 20px;
         font-size: 16px;
+        text-decoration: none;
+        transition: background-color 0.3s;
     }
 
-    .btn-primary a, .btn-secondary a {
+    .btn-primary {
+        background-color: #007bff;
         color: #fff;
+        border: none;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-primary:hover, .btn-secondary:hover {
         text-decoration: none;
     }
 
-    .btn-primary a:hover, .btn-secondary a:hover {
-        text-decoration: none;
-    }
-
-    .table-responsive {
-        margin-top: 20px;
-    }
-
-    .d-flex {
-        margin-top: 40px;
-    }
-
-    /* Media queries for responsiveness */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
         th, td {
             padding: 10px;
@@ -119,15 +104,13 @@ Services and Prices
             font-size: 14px;
             padding: 8px 15px;
         }
-        .container {
-        width: 70%;
-    }
-
     }
 
     @media (max-width: 576px) {
         th, td {
             padding: 8px;
+            font-size: 25px;
+            font-size: 12px;
         }
 
         th {
@@ -135,12 +118,12 @@ Services and Prices
         }
 
         .btn-primary, .btn-secondary {
-            font-size: 12px;
+            font-size: 10px;
             padding: 6px 10px;
         }
-        .container {
-        width: 80%;
-    }
+        
+
+
 
     }
 </style>
