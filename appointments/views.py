@@ -121,7 +121,7 @@ def booking_page(request):
                 appointment = form.save(commit=False)
                 appointment.client = profile  # Assign the profile as the client
                 appointment.save()
-                messages.error(request, 'Your booking was successful.')
+                messages.success(request, 'Your booking was successful.')
 
                 return redirect('booking-success', appointment_id=appointment.pk)
     else:
