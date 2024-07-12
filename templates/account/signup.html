@@ -11,6 +11,13 @@
     <div class="register-header">
         <header>Register</header>
     </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
     <form class="register-form" method="POST" action="{% url 'account_signup' %}">
         {% csrf_token %}
         <div class="input-box">
@@ -51,6 +58,18 @@
         align-items: center;
         min-height: 100vh;
     }
+
+    .errorlist {
+            color: red;
+            list-style-type: none;
+        }
+        .messages {
+            list-style-type: none;
+            padding: 0;
+        }
+        .messages li {
+            color: red;
+        }
 
     .register-box {
         display: flex;

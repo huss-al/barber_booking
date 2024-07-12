@@ -5,6 +5,13 @@ from .forms import ProfileForm
 from .models import Profile
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login as auth_login
+from allauth.account.views import LoginView
+from allauth.account.forms import LoginForm
+from django.contrib.auth.models import User
+from django.views import View
+from django import forms
+
+
 
 
 
@@ -16,10 +23,59 @@ def register(request):
             auth_login(request, user)  # Log in the user after registration
             messages.success(request, 'Registration successful! You can now book appointments.')
             return redirect('booking-page')  # Redirect to 'user-bookings' after registration
+        else:
+            messages.error(request, 'Please correct the errors.')
     else:
         form = UserCreationForm()
     
     return render(request, 'account/signup.html', {'form': form})
+
+
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("A user with that email already exists.")
+        return email
+
+
+class CustomSignupView(View):
+    form_class = CustomUserCreationForm
+    template_name = 'account/signup.html'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = form.save()
+            auth_login(request, user)  # Log in the user after registration
+            messages.success(request, 'Registration successful! You can now book appointments.')
+            return redirect('booking-page')  # Redirect to 'booking-page' after registration
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field.capitalize()}: {error}")
+            messages.error(request, 'Please correct the errors.')
+        return render(request, self.template_name, {'form': form})
+
+
+class CustomLoginView(LoginView):
+    form_class = LoginForm
+
+    def form_invalid(self, form):
+        messages.warning(self.request, 'Invalid login credentials or unregistered account.')
+        return super().form_invalid(form)
+
+
 
 
 @login_required
