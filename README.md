@@ -29,12 +29,24 @@
 ## User Experience (UX)
 
 ### User Stories
-1. As a user, I want to easily navigate through the website.
-2. As a user, I want to be able to book an appointment with my preferred barber.
-3. As a user, I want to see the services offered along with their prices.
-4. As a user, I want to view the gallery of the barber shop.
-5. As an admin, I want to manage the services and barbers listed on the website.
-6. As an admin, I want to handle bookings and view contact messages from users.
+1. As a user I want to View the home page with navigation bar and footer so I can easily navigate through the website.
+2. As a user I want to view the "Services & Prices" page so I can see the services offered and their prices.
+3. As a user I want to view the "Gallery" page with pictures so that I can see images of the barber shop and its work.
+4. As a user I want to view the "About Us" page so that I can learn more about the barber shop.
+5. As a user I want to access the "Contact Us" page with a contact form so that I can reach out to the barber shop for inquiries.
+6. As a user I want to click the "BOOK NOW" button so that I can choose a barber and service and book on them on a date and time that suits me.
+7. As a user I want to register for an account so that I can book appointments and manage my bookings.
+8. As a user I want to log in to my account so that I can access my booking details and manage my profile.
+9. As a user I want to see social media icons in the footer I can easily access the barber shop's social media pages.
+10. As a user I want to view available time slots for my chosen barber and service I can choose a convenient time for my appointment. 
+11. As a user I want to see relevant links in the footer I can quickly find important information and navigate the website more efficiently.
+12. As an admin I want to log in to the admin panel so that I can manage the website's content.
+13. As an admin I want to edit services and prices so that I can keep the services and prices up to date.
+14. As an admin I want to add, and remove pictures in the gallery so that I can update the visual content of the website.
+15. As an admin I want to add and remove barbers who work at the shop so that I can remove barbers who don't work there anymore and add new barbers.
+16. As an admin I want to manage user accounts and bookings so that I can assist users with their bookings and account-related issues. 
+
+
 
 ## Features
 
