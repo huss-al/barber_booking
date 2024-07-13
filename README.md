@@ -73,9 +73,12 @@
 - Screenshot: ![Insert screenshot of Footer](path/to/screenshot)
 
 ### Future Features
-- Email notification for admin and user upon registration, contact form submission, booking, editing, and cancelling an appointment.
-- Custom booking form with dynamic availability based on selected service and barber.
-- Integration of live Google reviews carousel on the home page.
+
+#### Email notification for admin and user upon registration, contact form submission, booking, editing, and cancelling an appointment.
+
+#### Custom booking form with dynamic availability based on selected service and barber.
+
+#### Integration of live Google reviews carousel on the home page.
 
 ## Design
 
