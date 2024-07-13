@@ -11,6 +11,9 @@
     - [Admin Page](#admin-page)
     - [Footer](#footer)
   - [Future Features](#future-features)
+    - [Email Notification](#email-notification)
+    - [Custom Booking Form](#custom-booking-form)
+    - [Google Reviews Carousel](#google-reviews-carousel)
 - [Design](#design)
   - [Images](#images)
   - [Colour Scheme](#colour-scheme)
@@ -74,11 +77,14 @@
 
 ### Future Features
 
-#### Email notification for admin and user upon registration, contact form submission, booking, editing, and cancelling an appointment.
+#### Email Notification
+- Email notification for admin and user upon registration, contact form submission, booking, editing, and cancelling an appointment.
 
-#### Custom booking form with dynamic availability based on selected service and barber.
+#### Custom Booking Form
+- Custom booking form with dynamic availability based on selected service and barber.
 
-#### Integration of live Google reviews carousel on the home page.
+#### Google Reviews Carousel
+- Integration of live Google reviews carousel on the home page.
 
 ## Design
 
