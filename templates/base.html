@@ -9,8 +9,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}The Barber Shop{% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block styles %}{% endblock %}
 </head>
 <body>
 
@@ -22,9 +24,7 @@
 
         <!-- BOOK NOW button visible on mobile -->
         <div class="d-lg-none">
-            <button type="button" class="btn btn-primary">
-                <a class="navbar-brand" href="{% url 'booking-page' %}">BOOK NOW</a>
-            </button>
+            <a class="btn btn-primary" href="{% url 'booking-page' %}">BOOK NOW</a>
         </div>
 
         <!-- Navbar toggler for mobile -->
@@ -59,9 +59,7 @@
 
             <!-- BOOK NOW button visible on desktop -->
             <div class="d-none d-lg-block">
-                <button type="button" class="btn btn-primary">
-                    <a class="navbar-brand" href="{% url 'booking-page' %}">BOOK NOW</a>
-                </button>
+                <a class="btn btn-primary" href="{% url 'booking-page' %}">BOOK NOW</a>
             </div>
         </div>
     </div>

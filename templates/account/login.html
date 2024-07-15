@@ -29,8 +29,9 @@
             </div>
             <div class="forgot">
                 <section>
+                    <h2>Remember Me</h2>
                     <input type="checkbox" id="check" name="remember">
-                    <label for="check">{% trans "Remember me" %}</label>
+                    <label for="check">Remember me</label>
                 </section>
             </div>
             <div class="input-submit">
@@ -41,10 +42,9 @@
             <p>{% trans "Don't have an account?" %} <a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></p>
         </div>
     </div>
+{% endblock %}
 
-
-
-
+{% block styles %}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 

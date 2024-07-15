@@ -4,11 +4,11 @@
 
 {% block content %}
 <!-- 1. Video of barber shop -->
-<div class="container text-center mt-5" width="100%">
-<video id="background-video" width="500" height="300" playsinline autoplay loop muted>
-    <source src="https://res.cloudinary.com/dqo3vn07c/video/upload/v1720688751/3998440-uhd_4096_2160_25fps_ye8ztt.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video> 
+<div class="container text-center mt-5" style="width: 100%;">
+    <video id="background-video" class="w-100 h-auto" playsinline autoplay loop muted>
+        <source src="https://res.cloudinary.com/dqo3vn07c/video/upload/v1720688751/3998440-uhd_4096_2160_25fps_ye8ztt.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> 
 </div>
 
 <!-- 2. Welcome Message and Business Story -->
@@ -43,28 +43,25 @@
             <h3 class="text-center mt-5 mb-5">Meet Our Barbers</h3>
         </div>
     </div>
+
     <div class="row mt-2">
         {% for barber in barbers %}
         <div class="col-lg-4 mb-4 text-center">
             <div class="text-center barber-section">
-                <img src="{{ barber.image.url }}" class="img-fluid rounded-circle" alt="{{ barber.name }}" style="max-width: 200px;" style="max-height: 250px;">
+                <img src="{{ barber.image.url }}" class="img-fluid rounded-circle" alt="{{ barber.name }}" style="width: 200px; max-height: 200px;">
                 <h5>{{ barber.name }}</h5>
                 <div class="row">
-                    <div class="col-2">
-
-                    </div>
+                    <div class="col-2"></div>
                         <div class="col-8">
                         <p>{{ barber.description }}</p>
                         </div>
-                    <div class="col-2">
-
-                    </div>
-            </div>
+                    <div class="col-2"></div>
+                </div>
             </div>
         </div>
         {% endfor %}
     </div>
-</div>
+
 
 
 
@@ -122,7 +119,6 @@
     </div>
 </div>
 
-
 <!-- to stop user from pausing vid -->
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -133,6 +129,9 @@
     });
 </script>
 
+{% endblock %}
+
+{% block styles %}
 <style>
     /* Optional: Style to make the video fill the screen */
     video {
@@ -283,6 +282,4 @@
 
     }
 </style>
-
-
 {% endblock %}

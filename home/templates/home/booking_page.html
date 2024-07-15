@@ -22,7 +22,11 @@
                             {% for field in form %}
                                 <div class="form-group m-2">
                                     {{ field.label_tag }}
-                                    {{ field }}
+                                    {% if field.name == 'date' %}
+                                        <input type="date" name="{{ field.name }}" class="form-control" required id="id_date">
+                                    {% else %}
+                                        {{ field }}
+                                    {% endif %}
                                     {% if field.help_text %}
                                         <small class="form-text text-muted">{{ field.help_text }}</small>
                                     {% endif %}
@@ -43,6 +47,10 @@
         </div>
     </div>
 </div>
+
+{% endblock %}
+
+{% block styles %}
 
 <style>
     /* General Container Styling */
