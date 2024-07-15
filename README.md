@@ -46,6 +46,9 @@
 15. As an admin I want to add and remove barbers who work at the shop so that I can remove barbers who don't work there anymore and add new barbers.
 16. As an admin I want to manage user accounts and bookings so that I can assist users with their bookings and account-related issues. 
 
+<p align="center">
+<img src="static/images/Screenshot 2024-07-14 at 12.41.41.png" width="600" height="100%">
+</p>
 
 
 ## Features
@@ -53,20 +56,69 @@
 ### Existing Features
 
 #### Nav Bar (Collapsable)
-- **BOOK NOW** button in the navbar.
-- Screenshot: ![Insert screenshot of Nav Bar](path/to/screenshot)
+- Desktop Nav bar 
+
+<p align="center">
+<img src="static/images/Desktop navbar.png" width="600" height="100%">
+</p>
+
+
+
+- Mobile Nav bar 
+<p align="center">
+<img src="static/images/Mobile navbar.png" width="600" height="100%">
+</p>
+
+
+- Mobile Nav bar - Collapsed 
+<p align="center">
+<img src="static/images/Mobile navbar collapsed.png" width="600" height="100%">
+</p>
 
 #### Landing/Home Page
+
+
 - Video at the top of the page.
+<p align="center">
+<img src="static/images/Video feature.png" width="600" height="100%">
+</p>
+
+
 - Buttons on the landing page: GALLERY, PRICES, CONTACT US, GOOGLE REVIEWS, BOOK NOW.
+<p align="center">
+<img src="static/images/homepage buttons.png" width="600" height="100%">
+</p>
+
+
 - Google reviews section.
-- Screenshot: ![Insert screenshot of Landing/Home Page](path/to/screenshot)
+
+<p align="center">
+<img src="static/images/homepage buttons 2.png" width="600" height="100%">
+</p>
+
 
 #### Booking Page
+
+
 - Dropdown to choose cut type.
+
+<p align="center">
+<img src="static/images/Booking from cut type drop.png" width="600" height="100%">
+</p>
+
+
 - Dropdown to select barber (client's choice).
+
+<p align="center">
+<img src="static/images/Booking form barber drop.png" width="600" height="100%">
+</p>
+
 - Dropdown time slots in 15-minute intervals with selection restricted to opening times (9-6).
-- Screenshot: ![Insert screenshot of Booking Page](path/to/screenshot)
+
+<p align="center">
+<img src="static/images/Booking form time drop.png" width="600" height="100%">
+</p>
+
 
 #### Admin Page
 - Admin can add cut type name, price, and duration from the admin page using the home app, which will reflect on the main services & prices page.
