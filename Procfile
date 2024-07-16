@@ -1,1 +1,1 @@
-web: gunicorn barber_shop.wsgi --log-file -
+web: gunicorn barber_shop.wsgi
