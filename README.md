@@ -27,6 +27,10 @@
 - [Testing](#testing)
 
 
+
+
+
+
 ## User Experience (UX)
 
 ### User Stories
@@ -187,11 +191,27 @@
 
 #### Footer
 - Featured on all pages and identical on each page for consistency.
-- Contains three sections:
+- Contains four sections:
+
   - Logo and social media icons.
+
   - Useful links: Home, Services, Gallery, About Us.
+
   - Contact us with address and phone number.
+
   - Opening hours.
+
+
+#### Desktop Footer
+  <p align="center">
+<img src="static/images/footer desktop.png" width="600" height="100%">
+</p>
+
+#### Mobile Footer
+  <p align="center">
+<img src="static/images/footer mobile.png" width="600" height="100%">
+</p>
+
 
 ### Future Features
 
@@ -213,7 +233,7 @@
 ### Images
 - Images and video sourced from [Pexels](https://www.pexels.com/).
 - Logo created using [Logo.com](https://www.logo.com/).
-- Screenshot: ![Insert screenshots of various images used](path/to/screenshot)
+
 
 ### Wireframes
 
