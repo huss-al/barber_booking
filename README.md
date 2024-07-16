@@ -21,10 +21,11 @@
 - [Technologies Used](#technologies-used)
   - [Languages Used](#languages-used)
   - [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used)
-- [Testing](#testing)
-  - [Validator Testing](#validator-testing)
+- [Validator Testing](#validator-testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
+- [Testing](#testing)
+
 
 ## User Experience (UX)
 
@@ -121,14 +122,68 @@
 
 
 #### Admin Page
+
 - Admin can add cut type name, price, and duration from the admin page using the home app, which will reflect on the main services & prices page.
+
+<p align="center">
+<img src="static/images/Home app cut type.png" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="static/images/home app CUT TYPE edit .png" width="600" height="100%">
+</p>
+
+
 - Admin can upload images in the admin page, which will be displayed on the main gallery page.
+
+<p align="center">
+<img src="static/images/Home app gallery.png" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="static/images/GALLERY edit.png" width="600" height="100%">
+</p>
+
 - Admin can add About Us image and text, which will be displayed on the main About Us page.
-- Admin can create an appointment in the admin page.
+
+<p align="center">
+<img src="static/images/home app about us.png" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="static/images/ABOUT US edit.png" width="600" height="100%">
+</p>
+
+
 - Cut Type in the appointments app, differing from the home app, to offer separate services for walk-ins and booked appointments.
+
+<p align="center">
+<img src="static/images/Appointment app cut type.png" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="static/images/appointment CUT TYPE  edit.png" width="600" height="100%">
+</p>
+
+
 - Admin can add barber details, which will display on the home page under 'Meet Our Barbers' and update the barber choices on the booking page.
+
+<p align="center">
+<img src="static/images/Barbers app Barbers.png" width="600" height="100%">
+</p>
+
+<p align="center">
+<img src="static/images/BARBERS edit.png" width="600" height="100%">
+</p>
+
+
 - Contact messages show messages sent by users via the contact form.
-- Screenshot: ![Insert screenshot of Admin Page](path/to/screenshot)
+
+<p align="center">
+<img src="static/images/home app Contact us.png" width="600" height="100%">
+</p>
+
+
 
 #### Footer
 - Featured on all pages and identical on each page for consistency.
@@ -137,7 +192,6 @@
   - Useful links: Home, Services, Gallery, About Us.
   - Contact us with address and phone number.
   - Opening hours.
-- Screenshot: ![Insert screenshot of Footer](path/to/screenshot)
 
 ### Future Features
 
@@ -150,6 +204,10 @@
 #### Google Reviews Carousel
 - Integration of live Google reviews carousel on the home page.
 
+#### Admin control over home page
+- Admin will be able to also upload/delete the video on the top of the home page as well as the welcome message.
+
+
 ## Design
 
 ### Images
@@ -157,11 +215,54 @@
 - Logo created using [Logo.com](https://www.logo.com/).
 - Screenshot: ![Insert screenshots of various images used](path/to/screenshot)
 
-### Colour Scheme
-- ![Insert description and screenshots of the color scheme](path/to/screenshot)
-
 ### Wireframes
-- ![Insert screenshots of wireframes](path/to/screenshot)
+
+#### Home page
+<p align="center">
+<img src="static/images/Wireframe-home page.png" width="600" height="100%">
+</p>
+
+#### Services & Prices page
+<p align="center">
+<img src="static/images/Wireframes-services page.png" width="600" height="100%">
+</p>
+
+#### Gallery page
+<p align="center">
+<img src="static/images/Wireframes-gallery page.png" width="600" height="100%">
+</p>
+
+#### About Us page
+<p align="center">
+<img src="static/images/Wireframes-about us page.png" width="600" height="100%">
+</p>
+
+#### Contact Us page
+<p align="center">
+<img src="static/images/Wireframes-contact us page.png" width="600" height="100%">
+</p>
+
+#### Login page
+<p align="center">
+<img src="static/images/Wireframes-login page.png" width="600" height="100%">
+</p>
+
+#### Register page
+<p align="center">
+<img src="static/images/Wireframes-register page.png" width="600" height="100%">
+</p>
+
+#### Booking page
+<p align="center">
+<img src="static/images/Wireframes-booking page.png" width="600" height="100%">
+</p>
+
+#### Booking Confirmation page
+<p align="center">
+<img src="static/images/Wireframes-booking confirmation.png" width="600" height="100%">
+</p>
+
+
 
 ## Technologies Used
 
@@ -186,17 +287,88 @@
 
 ### Validator Testing
 - HTML Validator
+
+#### Home
+<p align="center">
+<img src="static/images/home.html validator.png" width="600" height="100%">
+</p>
+
+#### Services & Prices
+<p align="center">
+<img src="static/images/services.html .png" width="600" height="100%">
+</p>
+
+#### Gallery
+<p align="center">
+<img src="static/images/gallery.png" width="600" height="100%">
+</p>
+
+#### About Us
+<p align="center">
+<img src="static/images/About Us.png" width="600" height="100%">
+</p>
+
+#### Contact Us
+<p align="center">
+<img src="static/images/Contact Us.png" width="600" height="100%">
+</p>
+
+#### Register
+<p align="center">
+<img src="static/images/register.png" width="600" height="100%">
+</p>
+
+#### Login
+<p align="center">
+<img src="static/images/login.png" width="600" height="100%">
+</p>
+
+#### Log out question
+<p align="center">
+<img src="static/images/logout question.png" width="600" height="100%">
+</p>
+
+#### Manage Bookings
+<p align="center">
+<img src="static/images/manage bookings.png" width="600" height="100%">
+</p>
+
+#### Book Now 
+<p align="center">
+<img src="static/images/booking page.png" width="600" height="100%">
+</p>
+
+#### Booking Success 
+<p align="center">
+<img src="static/images/booking success page.png" width="600" height="100%">
+</p>
+
+#### Edit Booking
+<p align="center">
+<img src="static/images/edit booking.png" width="600" height="100%">
+</p>
+
+#### Cancel Booking
+<p align="center">
+<img src="static/images/cancel booking.png" width="600" height="100%">
+</p>
+
 - CSS Validator
-- Screenshot: ![Insert screenshot of HTML validation results](path/to/screenshot)
-- Screenshot: ![Insert screenshot of CSS validation results](path/to/screenshot)
+
+<p align="center">
+<img src="static/images/CSS validator.png" width="600" height="100%">
+</p>
+
 
 ## Deployment
 - Deployed through Heroku.
-- Screenshot: ![Insert screenshot of Heroku deployment](path/to/screenshot)
+
 
 ## Credits
+
 - ChatGPT
 - Stack Overflow
 - Ludiflex (Login Form) - [Ludiflex YouTube Video](https://www.youtube.com/watch?v=KWIM5FuUJ8U&t=1s)
 
-![Insert any additional screenshots as necessary throughout the document](path/to/screenshot)
+
+## Testing
