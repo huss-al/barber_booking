@@ -389,17 +389,24 @@
 
 - Lighthouse
 
-- Navigation Links Manual Testing
+- Navigation Bar Links Manual Testing
 
 | Link       | Expected Outcome                              | Grade |
 |------------|-----------------------------------------------|-------|
-| Logo       | Navigates to the home page when clicked       | Pass  |
-| Home       | Navigates to the home page when clicked       | Pass  |
-| Services & Prices      | Navigates to the     | Pass  |
-| Add a Book | Navigates to a form to add a book when clicked| Pass  |
-| Register   | Navigates to a registration form when clicked | Pass  |
+| Logo       | Navigates to the home page      | Pass  |
+| Home       | Navigates to the home page      | Pass  |
+| Services & Prices      | Navigates to the Services & Prices page    | Pass  |
+| Gallery | Navigates to the Gallery page | Pass  |
+| About us  | Navigates to the About Us page | Pass  |
+| Contact us  | Navigates to the Contact Us page | Pass  |
+| Register  | Navigates to a registration form | Pass  |
 | Log in     | Navigates to a screen where users can log in when clicked | Pass  |
 | Logout     | Navigates to a page confirming for the user to log out   | Pass  |
+| Book now  | Navigates to the login page if user is not logged in, or register page when user is not registered and if user is logged in, navigates to the booking form | Pass  |
+| Manage bookings  | Navigates to a page where logged in user can see upcoming appointments | Pass  |
+
+
+
 
 
 
