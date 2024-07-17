@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-rt-8&cq$%m#^(6fy$8#1g=3$4t+hidq(x2g7l_gwk+^kq@g7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -132,9 +132,12 @@ WSGI_APPLICATION = 'barber_shop.wsgi.application'
 #     }
 # }
 
+
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
+
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
