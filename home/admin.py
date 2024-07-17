@@ -4,7 +4,6 @@ from .models import Profile, Gallery, AboutUsContent, ContactMessage, CutType
 from django_summernote.admin import SummernoteModelAdmin
 
 
-
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'firstname', 'surname')
@@ -22,9 +21,7 @@ class GalleryAdmin(admin.ModelAdmin):
     list_display = ('id', 'image')
 
 
-
 admin.site.register(AboutUsContent)
-
 
 
 @admin.register(ContactMessage)

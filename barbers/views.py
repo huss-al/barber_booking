@@ -18,6 +18,7 @@ def create_barber(request):
         form = BarberForm()
     return render(request, 'barbers/create_barber.html', {'form': form})
 
+
 @login_required
 def edit_barber(request, id):
     barber = get_object_or_404(Barber, id=id)
@@ -29,7 +30,10 @@ def edit_barber(request, id):
             return redirect('view_barbers')
     else:
         form = BarberForm(instance=barber)
-    return render(request, 'barbers/edit_barber.html', {'form': form, 'barber': barber})
+    return render(
+            request,
+            'barbers/edit_barber.html', {'form': form, 'barber': barber})
+
 
 @login_required
 def delete_barber(request, id):
@@ -39,6 +43,7 @@ def delete_barber(request, id):
         messages.success(request, 'Barber deleted successfully.')
         return redirect('view_barbers')
     return render(request, 'barbers/delete_barber.html', {'barber': barber})
+
 
 @login_required
 def view_barbers(request):

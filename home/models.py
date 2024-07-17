@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 
-# Create your models here.
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='home_profile')
+    user = models.OneToOneField(
+        User, on_delete=models.CASCADE, related_name='home_profile'
+    )
     firstname = models.CharField(max_length=100)
     surname = models.CharField(max_length=100)
 
@@ -22,13 +23,12 @@ class CutType(models.Model):
         return self.name
 
 
-
 class Gallery(models.Model):
     image = CloudinaryField('max_length=255')
 
     def __str__(self):
         return f"Gallery Image {self.id}"
-    
+
 
 class AboutUsContent(models.Model):
     image = CloudinaryField('image')
@@ -36,7 +36,7 @@ class AboutUsContent(models.Model):
 
     def __str__(self):
         return "About Us Content"
-    
+
 
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100)

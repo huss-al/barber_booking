@@ -1,5 +1,11 @@
 # Django Barber Shop Booking System
 
+<p align="center">
+<img src="static/images/Am I responsive.png" width="600" height="100%">
+</p>
+
+
+
 ## Table of Contents
 - [User Experience (UX)](#user-experience-ux)
   - [User Stories](#user-stories)
