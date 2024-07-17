@@ -385,6 +385,26 @@
 <img src="static/images/CSS validator.png" width="600" height="100%">
 </p>
 
+- Python Validator
+
+- Lighthouse
+
+- Navigation Links Manual Testing
+
+| Link       | Expected Outcome                              | Grade |
+|------------|-----------------------------------------------|-------|
+| Logo       | Navigates to the home page when clicked       | Pass  |
+| Home       | Navigates to the home page when clicked       | Pass  |
+| Services & Prices      | Navigates to the     | Pass  |
+| Add a Book | Navigates to a form to add a book when clicked| Pass  |
+| Register   | Navigates to a registration form when clicked | Pass  |
+| Log in     | Navigates to a screen where users can log in when clicked | Pass  |
+| Logout     | Navigates to a page confirming for the user to log out   | Pass  |
+
+
+
+
+
 
 ## Deployment
 - Deployed through Heroku.
