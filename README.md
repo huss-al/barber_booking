@@ -190,7 +190,7 @@
 - Contact messages show messages sent by users via the contact form.
 
 <p align="center">
-<img src="static/images/home app Contact us.png" width="600" height="100%">
+<img src="static/images/Contact Us.png" width="600" height="100%">
 </p>
 
 
