@@ -3,41 +3,40 @@
 {% block title %}My Bookings{% endblock %}
 
 {% block content %}
-    <div class="container mt-0">
-        <div class="manage-bookings-box">
-            <div class="manage-bookings-header">
-                <h1 class="text-center">My Bookings</h1>
-            </div>
-            
-            <div class="booking-section">
-                <div class="upcoming-appointments">
-                    {% if upcoming_appointments %}
-                    <h2 class="mb-3 text-center">Upcoming Appointments</h2>
-                    <ul class="list-group">
-                        {% for appointment in upcoming_appointments %}
-                            <li class="list-group-item">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <span>{{ appointment.date }}</span> - <span>{{ appointment.time }}</span><br>
-                                        <span>Barber: {{ appointment.barber.name }}</span><br>
-                                        <span>Cut: {{ appointment.cut.name }}</span>
-                                    </div>
-                                    <div>
-                                        <a href="{% url 'edit-booking' appointment.id %}" class="btn btn-primary me-2">Edit</a>
-                                        <a href="{% url 'cancel-booking' appointment.id %}" class="btn btn-danger">Cancel</a>
-                                    </div>
+<div class="container mt-5 mb-0">
+    <div class="manage-bookings-box">
+        <div class="manage-bookings-header">
+            <h1 class="text-center">My Bookings</h1>
+        </div>
+        
+        <div class="booking-section">
+            <div class="upcoming-appointments">
+                {% if upcoming_appointments %}
+                <h2 class="mb-3 text-center">Upcoming Appointments</h2>
+                <ul class="list-group">
+                    {% for appointment in upcoming_appointments %}
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span>{{ appointment.date }}</span> - <span>{{ appointment.time }}</span><br>
+                                    <span>Barber: {{ appointment.barber.name }}</span><br>
+                                    <span>Cut: {{ appointment.cut.name }}</span>
                                 </div>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    {% else %}
-                    <p class="text-center">No upcoming appointments.</p>
+                                <div>
+                                    <a href="{% url 'edit-booking' appointment.id %}" class="btn btn-primary me-2">Edit</a>
+                                    <a href="{% url 'cancel-booking' appointment.id %}" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-center">No upcoming appointments.</p>
                 {% endif %}
-                </div>
-                </div>
             </div>
         </div>
-
+    </div>
+</div>
 {% endblock %}
 
 {% block styles %}
@@ -45,18 +44,28 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+    body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
+    }
 
+    main {
+    flex-grow: 1; /* Allow main content to grow to fill remaining space */
+
+}
+
+    footer {
+    margin-top: auto; /* Push footer to the bottom */
+    width: 100%;
+    }
+
+        
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            
         }
 
         .manage-bookings-box {
