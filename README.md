@@ -4,6 +4,36 @@
 <img src="static/images/Am I responsive.png" width="600" height="100%">
 </p>
 
+The Barber Shop is a live website with a booking system. It allows user to register, login, book appointments, submit contact messages, view Services & Prices and view gallery. 
+The USP of this project is that the website is fully independant from any coders. I willk explain now what I mean;
+
+While ideating for this project, I was wondering how this website can compete with the likes of 
+Shopify, GoDaddy, Wix, etc as those are now the go-to website providers. The reason for that is because they are very user friendly and any person with a little knowledge of computers can create a website. Everything is already set up for you and all you have to do as a user is add images, colours and text of your products. Even themes have been created for you to choose from. 
+
+So I decided to create something as close as possible to that structure and allow the owner of the website to change/add to the website without needing any help from the creator of the website (me).
+
+In order to achieve this, I had to decide which are the most important factors of a barber shop website. 
+1) A price list of the services you offer.
+2) A gallery for potential customers to see your work.
+3) An 'About Us' page to explain the journey of the business. 
+4) A booking form to allow potential customers to book an appointment. 
+
+
+So I decided to put control of all 4 of the above points in the website owners hands and I can happily say I have achieved what I had imagined. Although it is not perfect and it can and will imporve massively in the future, please take into consideration that I only had 2 weeks to finish this project. 
+
+The website owner is able to add/edit/delete services & prices in the admin panel which will instantly display in the Services & Prices page on the website therefore allowing him to update prices without any help from any coder.
+
+This is the same with the Gallery page. The website owner is able to add/delete images in the admin panel which instantly displays in the galleries page on the website.
+
+They can also add/edit/delete an image and text for the About Us page.
+
+
+Please NOTE: There are 2 different cut types in the admin page. I will now explain this;
+
+The cut types in the HOME app will display the added cut type in the Services & Prices page on the website. 
+The Cut Types in the APPOINTMENTS app will display the added cut type in the drop down selection in the booking form only. 
+The reason why I seperated them is before I want to make the appointments cut types unique to the barbers. Some barbers may have skills which other barbers do not have and therefore they can do more cut types. And maybe the website owner offers services for walk-ins which he/she do not want to offer as an appointment. So I wanted to give the website owner control to decide which services he/she wants to offer to a walk-in customer and what they want to offer as an appointment. 
+
 
 
 ## Table of Contents
@@ -312,84 +342,254 @@
 ## Testing
 
 ### Validator Testing
-- HTML Validator
 
-#### Home
+#### HTML Validator
+
+- Home
 <p align="center">
 <img src="static/images/home.html validator.png" width="600" height="100%">
 </p>
 
-#### Services & Prices
+- Services & Prices
 <p align="center">
 <img src="static/images/services.html .png" width="600" height="100%">
 </p>
 
-#### Gallery
+- Gallery
 <p align="center">
 <img src="static/images/gallery.png" width="600" height="100%">
 </p>
 
-#### About Us
+- About Us
 <p align="center">
 <img src="static/images/About Us.png" width="600" height="100%">
 </p>
 
-#### Contact Us
+- Contact Us
 <p align="center">
 <img src="static/images/Contact Us.png" width="600" height="100%">
 </p>
 
-#### Register
+- Register
 <p align="center">
 <img src="static/images/register.png" width="600" height="100%">
 </p>
 
-#### Login
+- Login
 <p align="center">
 <img src="static/images/login.png" width="600" height="100%">
 </p>
 
-#### Log out question
+- Log out question
 <p align="center">
 <img src="static/images/logout question.png" width="600" height="100%">
 </p>
 
-#### Manage Bookings
+- Manage Bookings
 <p align="center">
 <img src="static/images/manage bookings.png" width="600" height="100%">
 </p>
 
-#### Book Now 
+- Book Now 
 <p align="center">
 <img src="static/images/booking page.png" width="600" height="100%">
 </p>
 
-#### Booking Success 
+- Booking Success 
 <p align="center">
 <img src="static/images/booking success page.png" width="600" height="100%">
 </p>
 
-#### Edit Booking
+- Edit Booking
 <p align="center">
 <img src="static/images/edit booking.png" width="600" height="100%">
 </p>
 
-#### Cancel Booking
+- Cancel Booking
 <p align="center">
 <img src="static/images/cancel booking.png" width="600" height="100%">
 </p>
 
-- CSS Validator
+#### CSS Validator
 
 <p align="center">
 <img src="static/images/CSS validator.png" width="600" height="100%">
 </p>
 
-- Python Validator
+#### Python Validator
 
-- Lighthouse
+- barber_shop/urls.py
+<p align="center">
+<img src="static/images/barber_shop:urls.png" width="600" height="100%">
+</p>
 
-- Navigation Bar Links Manual Testing
+
+- barber_shop/settings.py
+
+<p align="center">
+<img src="static/images/barber_shop:settings.png" width="600" height="100%">
+</p>
+
+
+- home/admin.py
+
+<p align="center">
+<img src="static/images/home admin.png" width="600" height="100%">
+</p>
+
+
+- home/forms.py
+
+<p align="center">
+<img src="static/images/home forms.png" width="600" height="100%">
+</p>
+
+
+- home/models.py
+
+<p align="center">
+<img src="static/images/home models.png" width="600" height="100%">
+</p>
+
+
+- home/urls.py
+
+<p align="center">
+<img src="static/images/home urls.png" width="600" height="100%">
+</p>
+
+
+home/views.py
+
+<p align="center">
+<img src="static/images/home views.png" width="600" height="100%">
+</p>
+
+
+- appointment/admin.py
+
+<p align="center">
+<img src="static/images/appt admin.png" width="600" height="100%">
+</p>
+
+
+- appointment/forms.py
+
+<p align="center">
+<img src="static/images/appt forms.png" width="600" height="100%">
+</p>
+
+
+- appointment/models.py
+
+<p align="center">
+<img src="static/images/appt models.png" width="600" height="100%">
+</p>
+
+
+- appointment/urls.py
+
+<p align="center">
+<img src="static/images/appointments urls.png" width="600" height="100%">
+</p>
+
+
+- appointment/views.py
+
+<p align="center">
+<img src="static/images/appt views.png" width="600" height="100%">
+</p>
+
+
+- barber/admin.py
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+
+- barber/forms.py
+
+<p align="center">
+<img src="static/images/barber forms.png" width="600" height="100%">
+</p>
+
+
+- barber/models.py
+
+<p align="center">
+<img src="static/images/barber models.png" width="600" height="100%">
+</p>
+
+
+- barber/urls.py
+
+<p align="center">
+<img src="static/images/barber urls.png" width="600" height="100%">
+</p>
+
+
+- barber/views.py
+
+<p align="center">
+<img src="static/images/barber views .png" width="600" height="100%">
+</p>
+
+
+- profile/admin.py
+
+<p align="center">
+<img src="#" width="600" height="100%">
+</p>
+
+
+- profile/forms.py
+
+<p align="center">
+<img src="static/images/profile forms.png" width="600" height="100%">
+</p>
+
+
+- profile/models.py
+
+<p align="center">
+<img src="static/images/profile models.png" width="600" height="100%">
+</p>
+
+
+- profile/urls.py
+
+<p align="center">
+<img src="static/images/profile urls.png" width="600" height="100%">
+</p>
+
+
+- profile/views.py
+
+<p align="center">
+<img src="static/images/profile views.png" width="600" height="100%">
+</p>
+
+#### Lighthouse
+
+
+- Desktop
+
+<p align="center">
+<img src="static/images/lighthouse desktop.png" width="600" height="100%">
+</p>
+
+
+- Mobile 
+
+<p align="center">
+<img src="static/images/lighthouse mobile.png" width="600" height="100%">
+</p>
+
+
+
+
+#### Navigation Bar Links Manual Testing
 
 | Link       | Expected Outcome                              | Grade |
 |------------|-----------------------------------------------|-------|
@@ -407,9 +607,129 @@
 
 
 
+#### Website Forms Manual Testing
+
+| Forms      | Expected Outcome                              | Grade |
+|------------|-----------------------------------------------|-------|
+| Contact Us form |  Sends the content of the contact form to the admin in the admin panel    | Pass  |
+| Book now form      | Allows the user to select service, barber, time and date      | Pass  |
+| Book now form submit     | Submits the booking form content to the admin in the admin page      | Pass  |
+
+
+#### Admin Panel Manual Testing
+
+| Admin tab      | Expected Outcome                              | Grade |
+|----------------|-----------------------------------------------|-------|
+| Home/Cut Types |  Adding a cut type will display on the Services & Prices page    | Pass  |
+| Home/Gallery      | Adding an image will display on the Gallery page      | Pass  |
+| Home/About Us content     | Allows admin to add/edit/delete content for the About Us page      | Pass  |
+| Home/Contact Messages |  This will display the users contact form content    | Pass  |
+| Barber/Barber |  Adding a barber will update the barber selection in the booking form and it will add the barber to the 'Meet the barbers' section in the home page    | Pass  |
+| Appointments/Appointments |  This will display the booking form content selected by the user. Admin can also use this tab to create a new appointment  | Pass  |
+| Appointments/Cut Types |  This will update the service selection for the user in the booking form    | Pass  |
 
 
 
+
+
+
+
+
+
+
+
+
+### Responsiveness
+
+
+
+#### Size: 320 x 667 MOBILE 
+
+- Home 
+
+<p align="center">
+<img src="static/images/home mobile  320 x 667 px.png" width="600" height="100%">
+</p>
+
+
+- Services & Prices
+
+<p align="center">
+<img src="static/images/prices 320 x 667 px.png" width="600" height="100%">
+</p>
+
+
+- Gallery 
+
+<p align="center">
+<img src="static/images/gallery 320 x 667 px.png" width="600" height="100%">
+</p>
+
+- Booking Form
+
+<p align="center">
+<img src="static/images/booking form 320 x 667.png" width="600" height="100%">
+</p>
+
+
+
+#### Size: 768 x 889 LAPTOP
+
+- Home 
+
+<p align="center">
+<img src="static/images/home 768 x 889 px.png" width="600" height="100%">
+</p>
+
+
+- Services & Prices
+
+<p align="center">
+<img src="static/images/prices 768 x 889.png" width="600" height="100%">
+</p>
+
+
+- Gallery 
+
+<p align="center">
+<img src="static/images/gallery 768 x 889.png" width="600" height="100%">
+</p>
+
+- Booking Form
+
+<p align="center">
+<img src="static/images/booking form 768 x 889 px.png" width="600" height="100%">
+</p>
+
+
+
+#### Size: 1024 x 1334 DESKTOP
+
+- Home 
+
+<p align="center">
+<img src="static/images/home 1024 x 1334 px.png" width="600" height="100%">
+</p>
+
+
+- Services & Prices
+
+<p align="center">
+<img src="static/images/Prices 1024  x 1334 px.png" width="600" height="100%">
+</p>
+
+
+- Gallery 
+
+<p align="center">
+<img src="static/images/gallery 1024 x 1334 px.png" width="600" height="100%">
+</p>
+
+- Booking Form
+
+<p align="center">
+<img src="static/images/Book now 1024 x 1334 px.png" width="600" height="100%">
+</p>
 
 
 
