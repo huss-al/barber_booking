@@ -658,11 +658,9 @@ home/views.py
 |--------------|------------|-----------------------------------------------|-------|
 |     | Logo       | Navigates to the home page      | Pass  |
 | As a user I want to View the home page with navigation bar and footer so I can easily navigate through the website.    | Home       | Navigates to the home page      | Pass  |
-| As a user I want to view the "Services & Prices" page so I can see the services offered and their prices.
-    | Services & Prices      | Navigates to the Services & Prices page    | Pass  |
+| As a user I want to view the "Services & Prices" page so I can see the services offered and their prices | Services & Prices      | Navigates to the Services & Prices page    | Pass  |
 | As a user I want to view the "Gallery" page with pictures so that I can see images of the barber shop and its work    | Gallery | Navigates to the Gallery page | Pass  |
-| As a user I want to view the "About Us" page so that I can learn more about the barber shop.
-    | About us  | Navigates to the About Us page | Pass  |
+| As a user I want to view the "About Us" page so that I can learn more about the barber shop| About us  | Navigates to the About Us page | Pass  |
 |As a user I want to access the "Contact Us" page with a contact form so that I can reach out to the barber shop for inquiries | Contact us  | Navigates to the Contact Us page | Pass  |
 | As a user I want to register for an account so that I can book appointments and manage my bookings | Register  | Navigates to a registration form | Pass  |
 | As a user I want to log in to my account so that I can access my booking details and manage my profile    | Log in     | Navigates to a screen where users can log in when clicked | Pass  |
