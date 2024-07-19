@@ -574,7 +574,7 @@ home/views.py
 - barber/admin.py
 
 <p align="center">
-<img src="static/images/barber:admin py.png" width="600" height="100%">
+<img src="static/images/barber admin py.png" width="600" height="100%">
 </p>
 
 
