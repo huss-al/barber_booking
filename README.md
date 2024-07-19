@@ -654,44 +654,46 @@ home/views.py
 
 #### Navigation Bar Links Manual Testing
 
-| Link       | Expected Outcome                              | Grade |
-|------------|-----------------------------------------------|-------|
-| Logo       | Navigates to the home page      | Pass  |
-| Home       | Navigates to the home page      | Pass  |
-| Services & Prices      | Navigates to the Services & Prices page    | Pass  |
-| Gallery | Navigates to the Gallery page | Pass  |
-| About us  | Navigates to the About Us page | Pass  |
-| Contact us  | Navigates to the Contact Us page | Pass  |
-| Register  | Navigates to a registration form | Pass  |
-| Log in     | Navigates to a screen where users can log in when clicked | Pass  |
-| Logout     | Navigates to a page confirming for the user to log out   | Pass  |
-| Book now  | Navigates to the login page if user is not logged in, or register page when user is not registered and if user is logged in, navigates to the booking form | Pass  |
-| Manage bookings  | Navigates to a page where logged in user can see upcoming appointments | Pass  |
-| Social Media Icons      | Navigates to the relevant social media site      | Pass  |
+| User Stories (if applicable) | Link       | Expected Outcome                              | Grade |
+|--------------|------------|-----------------------------------------------|-------|
+|     | Logo       | Navigates to the home page      | Pass  |
+| As a user I want to View the home page with navigation bar and footer so I can easily navigate through the website.    | Home       | Navigates to the home page      | Pass  |
+| As a user I want to view the "Services & Prices" page so I can see the services offered and their prices.
+    | Services & Prices      | Navigates to the Services & Prices page    | Pass  |
+| As a user I want to view the "Gallery" page with pictures so that I can see images of the barber shop and its work    | Gallery | Navigates to the Gallery page | Pass  |
+| As a user I want to view the "About Us" page so that I can learn more about the barber shop.
+    | About us  | Navigates to the About Us page | Pass  |
+|As a user I want to access the "Contact Us" page with a contact form so that I can reach out to the barber shop for inquiries | Contact us  | Navigates to the Contact Us page | Pass  |
+| As a user I want to register for an account so that I can book appointments and manage my bookings | Register  | Navigates to a registration form | Pass  |
+| As a user I want to log in to my account so that I can access my booking details and manage my profile    | Log in     | Navigates to a screen where users can log in when clicked | Pass  |
+|     | Logout     | Navigates to a page confirming for the user to log out   | Pass  |
+|As a user I want to click the "BOOK NOW" button so that I can choose a barber and service and book on them on a date and time that suits me  | Book now  | Navigates to the login page if user is not logged in, or register page when user is not registered and if user is logged in, navigates to the booking form | Pass  |
+|     | Manage bookings  | Navigates to a page where logged in user can see upcoming appointments | Pass  |
+| As a user I want to see social media icons in the footer I can easily access the barber shop's social media pages    | Social Media Icons      | Navigates to the relevant social media site      | Pass  |
 
 
 
 
 #### Website Forms Manual Testing
 
-| Forms      | Expected Outcome                              | Grade |
-|------------|-----------------------------------------------|-------|
-| Contact Us form |  Sends the content of the contact form to the admin in the admin panel    | Pass  |
-| Book now form      | Allows the user to select service, barber, time and date      | Pass  |
-| Book now form submit     | Submits the booking form content to the admin in the admin page      | Pass  |
+| User Stories | Forms      | Expected Outcome                              | Grade |
+|--------------|------------|-----------------------------------------------|-------|
+| As a user I want to access the "Contact Us" page with a contact form so that I can reach out to the barber shop for inquiries | Contact Us form |  Sends the content of the contact form to the admin in the admin panel    | Pass  |
+| As a user I want to click the "BOOK NOW" button so that I can choose a barber and service and book on them on a date and time that suits me | Book now form      | Allows the user to select service, barber, time and date. As a user I want to view available time slots for my chosen barber and service I can choose a convenient time for my appointment  | Pass  |
+|     | Book now form submit     | Submits the booking form content to the admin in the admin page      | Pass  |
 
 
 #### Admin Panel Manual Testing
 
-| Admin tab      | Expected Outcome                              | Grade |
-|----------------|-----------------------------------------------|-------|
-| Home/Cut Types |  Adding a cut type will display on the Services & Prices page    | Pass  |
-| Home/Gallery      | Adding an image will display on the Gallery page      | Pass  |
-| Home/About Us content     | Allows admin to add/edit/delete content for the About Us page      | Pass  |
-| Home/Contact Messages |  This will display the users contact form content    | Pass  |
-| Barber/Barber |  Adding a barber will update the barber selection in the booking form and it will add the barber to the 'Meet the barbers' section in the home page    | Pass  |
-| Appointments/Appointments |  This will display the booking form content selected by the user. Admin can also use this tab to create a new appointment  | Pass  |
-| Appointments/Cut Types |  This will update the service selection for the user in the booking form    | Pass  |
+| User Stories | Admin tab      | Expected Outcome                              | Grade |
+|--------------|----------------|-----------------------------------------------|-------|
+| As an admin I want to edit services and prices so that I can keep the services and prices up to date    | Home/Cut Types |  Adding a cut type will display on the Services & Prices page    | Pass  |
+| As an admin I want to add, and remove pictures in the gallery so that I can update the visual content of the website    | Home/Gallery      | Adding an image will display on the Gallery page      | Pass  |
+|     | Home/About Us content     | Allows admin to add/edit/delete content for the About Us page      | Pass  |
+|     | Home/Contact Messages |  This will display the users contact form content    | Pass  |
+| As an admin I want to add and remove barbers who work at the shop so that I can remove barbers who don't work there anymore and add new barbers    | Barber/Barber |  Adding a barber will update the barber selection in the booking form and it will add the barber to the 'Meet the barbers' section in the home page    | Pass  |
+| As an admin I want to manage user accounts and bookings so that I can assist users with their bookings and account-related issues    | Appointments/Appointments |  This will display the booking form content selected by the user. Admin can also use this tab to create a new appointment  | Pass  |
+|     | Appointments/Cut Types |  This will update the service selection for the user in the booking form    | Pass  |
 
 
 
