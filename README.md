@@ -574,7 +574,7 @@ home/views.py
 - barber/admin.py
 
 <p align="center">
-<img src="#" width="600" height="100%">
+<img src="static/images/barber:admin py.png" width="600" height="100%">
 </p>
 
 
@@ -603,13 +603,6 @@ home/views.py
 
 <p align="center">
 <img src="static/images/barber views .png" width="600" height="100%">
-</p>
-
-
-- profile/admin.py
-
-<p align="center">
-<img src="#" width="600" height="100%">
 </p>
 
 
@@ -674,6 +667,8 @@ home/views.py
 | Logout     | Navigates to a page confirming for the user to log out   | Pass  |
 | Book now  | Navigates to the login page if user is not logged in, or register page when user is not registered and if user is logged in, navigates to the booking form | Pass  |
 | Manage bookings  | Navigates to a page where logged in user can see upcoming appointments | Pass  |
+| Social Media Icons      | Navigates to the relevant social media site      | Pass  |
+
 
 
 
