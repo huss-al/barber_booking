@@ -61,10 +61,10 @@ The reason why I seperated them is before I want to make the appointments cut ty
 - [Technologies Used](#technologies-used)
   - [Languages Used](#languages-used)
   - [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used)
+- [Data Models](#data-models)
 - [Validator Testing](#validator-testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
-- [Testing](#testing)
 
 
 
@@ -342,6 +342,72 @@ The reason why I seperated them is before I want to make the appointments cut ty
 - Font Awesome
 - Balsamiq
 - VS Code
+
+## Data Models
+
+
+### Relationships
+
+<p align="center">
+<img src="static/images/ERD relationships.png" width="600" height="100%">
+</p>
+
+
+### User Django (built-in)
+
+<p align="center">
+<img src="static/images/ERD User Django built -in .png" width="600" height="100%">
+</p>
+
+
+### Appointment
+
+<p align="center">
+<img src="static/images/ERD appointment.png" width="600" height="100%">
+</p>
+
+
+### Profiles
+
+<p align="center">
+<img src="static/images/ERD Profile .png" width="600" height="100%">
+</p>
+
+
+### Barbers
+
+<p align="center">
+<img src="static/images/ERD barber.png" width="600" height="100%">
+</p>
+
+
+### Cut Type
+
+<p align="center">
+<img src="static/images/ERD cut type.png" width="600" height="100%">
+</p>
+
+
+### Gallery
+
+<p align="center">
+<img src="static/images/ERD gallery.png" width="600" height="100%">
+</p>
+
+
+### About Us
+
+<p align="center">
+<img src="static/images/ERD about us.png" width="600" height="100%">
+</p>
+
+
+### Contact Us 
+
+<p align="center">
+<img src="static/images/ERD contact messages.png" width="600" height="100%">
+</p>
+
 
 ## Testing
 
@@ -747,5 +813,3 @@ home/views.py
 - Stack Overflow
 - Ludiflex (Login Form) - [Ludiflex YouTube Video](https://www.youtube.com/watch?v=KWIM5FuUJ8U&t=1s)
 
-
-## Testing
