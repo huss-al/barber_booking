@@ -29,13 +29,14 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False 
+DEBUG = True 
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     '.herokuapp.com',
     '8000-hussal-barberbooking-nlzcppl0sfu.ws.codeinstitute-ide.net',
+    '8000-hussal-barberbooking-m9b3nn8k0b9.ws-eu116.gitpod.io'
 ]
 
 
